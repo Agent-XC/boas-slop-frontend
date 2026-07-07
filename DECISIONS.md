@@ -45,9 +45,17 @@ des faits à observer, puisqu'ils ne peuvent être observés qu'après coup.
   **public** (Pages gratuit, données déjà publiques, permet l'audit externe).
   Le moment de la création (`git init` + remote) est volontairement laissé
   à l'étape d'exécution, pas encore fait.
-- **Déploiement du site** : GitHub Pages configuré en "deploy from branch"
-  sur `main`, dossier `/site` — pas de workflow Actions dédié au déploiement,
-  cohérent avec le choix de ne jamais introduire de build step côté front.
+- **Déploiement du site** : ~~GitHub Pages configuré en "deploy from branch"
+  sur `main`, dossier `/site`~~ **Révisé le 2026-07-07** — l'API GitHub Pages
+  n'accepte, en mode "deploy from branch", que la racine du dépôt ou un
+  dossier `/docs` comme source ; `/site` n'est pas une option valide, et
+  `/docs` était déjà pris (documentation agents dans `docs/agents/`).
+  Solution retenue : déploiement par **workflow GitHub Actions officiel**
+  (`actions/upload-pages-artifact` + `actions/deploy-pages`), qui publie le
+  contenu de `/site` tel quel, sans build/bundle — l'esprit de la décision
+  initiale (« ne jamais introduire de build step côté front ») est donc
+  respecté, même si le texte littéral de la décision ("pas de workflow
+  Actions dédié au déploiement") ne l'est plus.
 - **Langage du scraper** : Python (`requests`/`httpx` + parsing HTML), déjà
   le candidat par défaut cité dans `PROJECT_GOAL.md`.
 
