@@ -12,4 +12,4 @@ The skills speak in terms of five canonical triage roles. This file maps those r
 
 When a skill mentions a role (e.g. "apply the AFK-ready triage label"), use the corresponding label string from this table.
 
-These labels don't exist yet since the GitHub repo hasn't been created — create them (with descriptions matching the table above) as part of repo bootstrap, before running `/triage` for the first time.
+All five labels exist on `Agent-XC/boas-slop-frontend` (created 2026-07-07; `wontfix` was already present as a GitHub default label with an equivalent meaning, the other four were added explicitly).

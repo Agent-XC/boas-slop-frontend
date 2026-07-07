@@ -2,12 +2,12 @@
 
 Issues and PRDs for this repo live as GitHub issues. Use the `gh` CLI for all operations.
 
-**Note:** as of this writing, this project is not yet a git repository and no
-GitHub remote exists — `DECISIONS.md` records the decision to create a public
-GitHub repo, but the `git init` + remote step is still pending (see
-`CLAUDE.md`). The conventions below apply once that repo exists; until then,
-skills that need to read/write issues should say so explicitly rather than
-silently failing.
+**Note:** the repo is live at `git@github.com:Agent-XC/boas-slop-frontend.git`
+(`main` branch), created 2026-07-07, matching the decision in `DECISIONS.md`
+to make it a public GitHub repo. `gh` is installed and authenticated as of
+2026-07-07 (installed to `~/.local/bin/gh` via direct binary download, not
+Homebrew, since `/usr/local` wasn't user-writable in this environment). The
+conventions below apply now.
 
 ## Conventions
 

@@ -31,7 +31,9 @@ of those, and before assuming the pipeline hasn't been designed yet.
 ## Current state (important: read before assuming anything is "done")
 
 There is no scraper, no build system, no tests, and no GitHub Actions yet.
-This is not a git repository at present. What exists today:
+This became a git repository on 2026-07-07, with a public GitHub remote at
+`git@github.com:Agent-XC/boas-slop-frontend.git` (`main` branch). What exists
+today:
 
 - `site/index.html` — a standalone, dependency-free HTML/CSS/JS prototype.
   The dataset is a **hardcoded JS array** (`DATA`, in the `<script>` tag) with
@@ -145,11 +147,11 @@ live site. Cron target: weekly, early Monday UTC.
 
 ### Issue tracker
 
-Issues live in GitHub Issues (repo not yet created — see "Current state"); external PRs are not a triage surface. See `docs/agents/issue-tracker.md`.
+Issues live in GitHub Issues (`Agent-XC/boas-slop-frontend`); external PRs are not a triage surface. See `docs/agents/issue-tracker.md`.
 
 ### Triage labels
 
-Default label vocabulary (`needs-triage`, `needs-info`, `ready-for-agent`, `ready-for-human`, `wontfix`) — not yet created in a real tracker. See `docs/agents/triage-labels.md`.
+Default label vocabulary (`needs-triage`, `needs-info`, `ready-for-agent`, `ready-for-human`, `wontfix`) — all five exist as real GitHub labels on the repo. See `docs/agents/triage-labels.md`.
 
 ### Domain docs
 
