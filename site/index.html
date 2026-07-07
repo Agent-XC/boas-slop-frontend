@@ -1,0 +1,619 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>BOAS — Catalogue des algorithmes de santé</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Source+Serif+4:opsz,wght@8..60,400;8..60,600;8..60,700&family=IBM+Plex+Sans:wght@400;500;600&family=IBM+Plex+Mono:wght@400;500;600&display=swap" rel="stylesheet">
+<style>
+  :root{
+    --paper:#EFF2F0;
+    --card:#FBFBF9;
+    --ink:#14213D;
+    --ink-soft:#4B5566;
+    --line:#CBD2CB;
+    --line-soft:#DEE3DE;
+    --accent:#2F6F62;
+    --accent-soft:#DCE9E5;
+
+    --c-cancers:#A13D3D;
+    --c-cardio:#C2662D;
+    --c-diabete:#B08D2E;
+    --c-neuro:#6B4C9A;
+    --c-mentale:#3D6EA1;
+    --c-perinat:#B3577A;
+    --c-respi:#2F8F7A;
+    --c-infect:#5C7A29;
+    --c-pediatrie:#4A90A4;
+    --c-geriatrie:#7A6A53;
+    --c-radio:#4A5A8A;
+    --c-tous:#14213D;
+    --c-autre:#8A8A82;
+  }
+  *{box-sizing:border-box;}
+  body{
+    margin:0;
+    background:var(--paper);
+    color:var(--ink);
+    font-family:'IBM Plex Sans',sans-serif;
+    -webkit-font-smoothing:antialiased;
+  }
+  a{color:inherit;}
+
+  /* ---------- Header ---------- */
+  header{
+    padding:2.6rem 2rem 1.6rem;
+    border-bottom:1px solid var(--line);
+    background:
+      repeating-linear-gradient(90deg, transparent, transparent 79px, var(--line-soft) 79px, var(--line-soft) 80px);
+  }
+  .header-inner{max-width:1180px;margin:0 auto;}
+  .eyebrow{
+    font-family:'IBM Plex Mono',monospace;
+    font-size:.72rem;
+    letter-spacing:.14em;
+    text-transform:uppercase;
+    color:var(--accent);
+    margin:0 0 .5rem;
+  }
+  h1{
+    font-family:'Source Serif 4',serif;
+    font-weight:700;
+    font-size:clamp(1.8rem,3.4vw,2.7rem);
+    margin:0 0 .5rem;
+    letter-spacing:-0.01em;
+  }
+  .subhead{
+    max-width:640px;
+    color:var(--ink-soft);
+    font-size:.98rem;
+    line-height:1.55;
+    margin:0 0 1.4rem;
+  }
+  .subhead a{color:var(--accent); text-decoration:underline; text-decoration-color:var(--accent-soft);}
+  .searchbar{
+    display:flex;
+    align-items:center;
+    gap:.6rem;
+    max-width:520px;
+    background:var(--card);
+    border:1px solid var(--ink);
+    border-radius:2px;
+    padding:.55rem .8rem;
+  }
+  .searchbar svg{flex:none;opacity:.55;}
+  .searchbar input{
+    border:none;background:transparent;outline:none;
+    font-family:'IBM Plex Mono',monospace;
+    font-size:.88rem;
+    width:100%;
+    color:var(--ink);
+  }
+  .searchbar input::placeholder{color:#8B93A0;}
+
+  /* ---------- Layout ---------- */
+  .layout{
+    max-width:1180px;
+    margin:0 auto;
+    padding:1.8rem 2rem 4rem;
+    display:grid;
+    grid-template-columns:270px 1fr;
+    gap:2.2rem;
+    align-items:start;
+  }
+
+  /* ---------- Filter rail (card catalog) ---------- */
+  .rail{
+    position:sticky;
+    top:1.2rem;
+    background:var(--card);
+    border:1px solid var(--line);
+    border-radius:3px;
+    box-shadow:2px 3px 0 var(--line-soft);
+  }
+  .rail-head{
+    display:flex;
+    justify-content:space-between;
+    align-items:baseline;
+    padding:.9rem 1rem .7rem;
+    border-bottom:1px solid var(--line);
+  }
+  .rail-head h2{
+    font-family:'IBM Plex Mono',monospace;
+    font-size:.72rem;
+    letter-spacing:.12em;
+    text-transform:uppercase;
+    margin:0;
+    color:var(--ink-soft);
+  }
+  .reset-btn{
+    font-family:'IBM Plex Mono',monospace;
+    font-size:.7rem;
+    color:var(--accent);
+    background:none;border:none;cursor:pointer;
+    text-decoration:underline;padding:0;
+  }
+  .facet{
+    border-bottom:1px solid var(--line-soft);
+    padding:.75rem 1rem;
+  }
+  .facet:last-child{border-bottom:none;}
+  .facet summary{
+    cursor:pointer;
+    list-style:none;
+    display:flex;
+    justify-content:space-between;
+    align-items:center;
+    font-size:.82rem;
+    font-weight:600;
+    color:var(--ink);
+  }
+  .facet summary::-webkit-details-marker{display:none;}
+  .facet summary::after{
+    content:"+";
+    font-family:'IBM Plex Mono',monospace;
+    color:var(--accent);
+    font-weight:400;
+  }
+  .facet[open] summary::after{content:"–";}
+  .facet-opts{margin-top:.6rem;display:flex;flex-direction:column;gap:.4rem;}
+  .facet-opt{
+    display:flex;
+    align-items:center;
+    justify-content:space-between;
+    gap:.5rem;
+    font-size:.82rem;
+    color:var(--ink-soft);
+    cursor:pointer;
+  }
+  .facet-opt input{accent-color:var(--accent);}
+  .facet-opt .label{display:flex;align-items:center;gap:.4rem;flex:1;}
+  .facet-opt .swatch{width:.55rem;height:.55rem;border-radius:1px;flex:none;}
+  .facet-opt .count{
+    font-family:'IBM Plex Mono',monospace;
+    font-size:.72rem;
+    color:#9AA1AC;
+  }
+  .facet-opt.disabled{opacity:.35;pointer-events:none;}
+
+  /* ---------- Results ---------- */
+  .results-head{
+    display:flex;
+    justify-content:space-between;
+    align-items:center;
+    margin-bottom:1rem;
+    font-family:'IBM Plex Mono',monospace;
+    font-size:.78rem;
+    color:var(--ink-soft);
+  }
+  .active-chips{display:flex;flex-wrap:wrap;gap:.4rem;margin-bottom:1rem;}
+  .chip{
+    display:flex;align-items:center;gap:.35rem;
+    font-family:'IBM Plex Mono',monospace;
+    font-size:.72rem;
+    background:var(--accent-soft);
+    color:var(--accent);
+    border:1px solid var(--accent);
+    border-radius:2px;
+    padding:.2rem .5rem;
+  }
+  .chip button{border:none;background:none;color:var(--accent);cursor:pointer;font-size:.85rem;line-height:1;padding:0;}
+
+  .grid{
+    display:grid;
+    grid-template-columns:repeat(auto-fill,minmax(300px,1fr));
+    gap:1rem;
+  }
+  .card{
+    position:relative;
+    background:var(--card);
+    border:1px solid var(--line);
+    border-radius:2px;
+    padding:1rem 1rem 1rem 1.1rem;
+    box-shadow:2px 2px 0 var(--line-soft);
+    display:flex;
+    flex-direction:column;
+    gap:.55rem;
+  }
+  .card::before{
+    content:"";
+    position:absolute;
+    left:0;top:0;bottom:0;
+    width:5px;
+    background:var(--tab,var(--c-autre));
+  }
+  .card-kind{
+    font-family:'IBM Plex Mono',monospace;
+    font-size:.66rem;
+    letter-spacing:.08em;
+    text-transform:uppercase;
+    color:var(--ink-soft);
+  }
+  .card h3{
+    font-family:'Source Serif 4',serif;
+    font-size:1.02rem;
+    line-height:1.32;
+    margin:0;
+    font-weight:600;
+  }
+  .card h3 a{text-decoration:none;}
+  .card h3 a:hover{text-decoration:underline;}
+  .card-meta{
+    display:flex;flex-direction:column;gap:.32rem;
+    font-size:.78rem;
+    color:var(--ink-soft);
+    margin-top:.15rem;
+  }
+  .meta-row{display:flex;gap:.4rem;}
+  .meta-row .k{
+    font-family:'IBM Plex Mono',monospace;
+    font-size:.68rem;
+    text-transform:uppercase;
+    letter-spacing:.05em;
+    color:#9AA1AC;
+    min-width:5.6rem;
+    flex:none;
+    padding-top:.1rem;
+  }
+  .meta-row .v{flex:1;}
+  .tagset{display:flex;flex-wrap:wrap;gap:.3rem;}
+  .tag{
+    font-size:.7rem;
+    padding:.08rem .4rem;
+    border-radius:8px;
+    background:var(--accent-soft);
+    color:var(--accent);
+    border:1px solid transparent;
+  }
+  .tag.domain{background:transparent;border:1px solid currentColor;}
+  .status-row{
+    display:flex;
+    gap:.5rem;
+    margin-top:.2rem;
+    padding-top:.55rem;
+    border-top:1px dashed var(--line);
+    font-size:.72rem;
+    font-family:'IBM Plex Mono',monospace;
+  }
+  .status{padding:.1rem .4rem;border-radius:2px;}
+  .status.valide{background:#E1EEE7;color:#1F6B4C;}
+  .status.encours{background:#FBF0DC;color:#8A5A0F;}
+  .status.nonvalide{background:#F3E3E1;color:#9B3B32;}
+  .status.na{background:#EEEEEC;color:#8A8A82;}
+
+  .empty{
+    grid-column:1/-1;
+    text-align:center;
+    padding:3rem 1rem;
+    color:var(--ink-soft);
+    font-family:'IBM Plex Mono',monospace;
+    font-size:.85rem;
+  }
+
+  footer{
+    max-width:1180px;margin:0 auto;
+    padding:0 2rem 3rem;
+    color:var(--ink-soft);
+    font-size:.78rem;
+    line-height:1.6;
+  }
+  footer a{color:var(--accent);}
+
+  @media (max-width:860px){
+    .layout{grid-template-columns:1fr;}
+    .rail{position:static;}
+  }
+</style>
+</head>
+<body>
+
+<header>
+  <div class="header-inner">
+    <p class="eyebrow">Catalogue non-officiel — projet indépendant</p>
+    <h1>BOAS — Bibliothèque Ouverte d'Algorithmes en Santé</h1>
+    <p class="subhead">
+      Une relecture du catalogue publié par le
+      <a href="https://www.health-data-hub.fr/bibliotheque-ouverte-algorithmes-sante" target="_blank" rel="noopener">Health Data Hub</a>,
+      avec des filtres reformulés et une seule page pour tout voir. Données recopiées manuellement depuis les 5 pages du site source — vérifiez toujours la fiche d'origine avant usage.
+    </p>
+    <div class="searchbar">
+      <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="11" cy="11" r="7"/><line x1="21" y1="21" x2="16.65" y2="16.65"/></svg>
+      <input id="search" type="text" placeholder="Rechercher un intitulé, un mot-clé…">
+    </div>
+  </div>
+</header>
+
+<div class="layout">
+  <aside class="rail">
+    <div class="rail-head">
+      <h2>Filtrer les fiches</h2>
+      <button class="reset-btn" id="resetBtn">réinitialiser</button>
+    </div>
+    <div id="facets"></div>
+  </aside>
+
+  <main>
+    <div class="active-chips" id="chips"></div>
+    <div class="results-head">
+      <span id="resultCount">— fiches</span>
+      <span id="sortLabel">triées par ordre alphabétique</span>
+    </div>
+    <div class="grid" id="grid"></div>
+  </main>
+</div>
+
+<footer>
+  Recensement indépendant à partir des fiches publiques du Health Data Hub (juillet 2026). Ce site n'est pas affilié au Health Data Hub ni à la Plateforme des données de santé.
+  Pour déposer ou consulter une fiche officielle, rendez-vous sur
+  <a href="https://www.health-data-hub.fr/bibliotheque-ouverte-algorithmes-sante" target="_blank" rel="noopener">health-data-hub.fr</a>.
+</footer>
+
+<script>
+/* ============================================================
+   DATA
+   Field key:
+   t  = titre
+   u  = slug (chemin sur health-data-hub.fr)
+   a  = type d'auteur
+   o  = objectifs (redéfinis)
+   d  = domaines médicaux (normalisés)
+   l  = langages
+   dt = données d'application
+   v  = validation
+   m  = maintenance
+   ============================================================ */
+const BASE_URL = "https://www.health-data-hub.fr/bibliotheque-ouverte-algorithmes-sante/";
+
+const DATA = [
+{t:"EHDEN / Persephone",u:"ehden-persephone",a:"Plateforme de données",o:["Transformation de données"],d:["Autre / non précisé"],l:["SQL"],dt:["Base principale"],v:"Validé",m:"Ad-hoc"},
+{t:"Algorithme pour construire le top diabète de la cartographie de la CNAM (version G8), 2019",u:"algorithme-pour-construire-le-top-diabete-de-la-cartographie",a:"Administrations et ministère",o:["Cartographie des pathologies","Ciblage / sélection de population"],d:["Diabète"],l:["Python","SAS"],dt:["Base principale"],v:"Non validé",m:"Ad-hoc"},
+{t:"Prise en charge des allergies aux pollens dans la région Normandie",u:"prise-en-charge-des-allergies-aux-pollens-dans-la-region",a:"Plateforme de données",o:["Requête à la demande"],d:["Maladies respiratoires"],l:["SAS","SQL"],dt:["Base principale"],v:"Non validé",m:"Pas de maintenance"},
+{t:"Indicateurs sur le statut d'ayant droit entre 2012 et 2020",u:"indicateurs-sur-le-statut-dayant-droit-entre-2012-et-2020",a:"Autre",o:["Requête à la demande"],d:["Autre / non précisé"],l:["SAS","SQL"],dt:["Base principale"],v:"Non validé",m:"Pas de maintenance"},
+{t:"Magic Loop",u:"magic-loop",a:"Administrations et ministère",o:["Transformation de données"],d:[],l:["SAS"],dt:["Base principale"],v:"Validé",m:"Ad-hoc"},
+{t:"Prise en charge des patients atteints de la maladie de Crohn et de la rectocolite hémorragique",u:"prise-en-charge-des-patients-atteints-de-la-maladie-de-crohn",a:"Plateforme de données",o:["Requête à la demande"],d:["Autre / non précisé"],l:["SAS","SQL"],dt:["Base principale"],v:"Non validé",m:"Pas de maintenance"},
+{t:"Bibliothèque d'outils de pseudonymisation d'attributs et de clichés radiographiques (DICOM)",u:"bibliotheque-doutils-de-pseudonymisation-dattributs-et-de",a:"Start-up",o:["Anonymisation / pseudonymisation"],d:["Cancers","Radiologie et imagerie médicale"],l:["Python"],dt:["Données d'imagerie","Données tabulaires","Texte libre"],v:"Validé",m:"Ad-hoc"},
+{t:"Extract-Metadata — extraction de métadonnées à partir d'une base tabulaire et d'imagerie DICOM",u:"extract-metadata-extraction-de-metadonnees-partir-dune-base",a:"Autre",o:["Autre"],d:["Autre / non précisé"],l:["Python"],dt:["Données d'imagerie","Données tabulaires"],v:"Validé",m:"Régulière"},
+{t:"Programmes d'extraction des données du SNDS (accès permanent)",u:"programmes-dextraction-des-donnees-du-snds-acces-permanent",a:"Organisme de recherche",o:["Ciblage / sélection de population","Transformation de données","Identification & dépistage"],d:["Autre / non précisé"],l:["SAS"],dt:["Base principale"],v:"Validé",m:"Ad-hoc"},
+{t:"Jointure d'une table avec les référentiels bénéficiaires (IR_BEN_R et IR_BEN_R_ARC)",u:"jointure-dune-table-avec-les-referentiels-beneficiaires",a:"Agence",o:["Ciblage / sélection de population"],d:["Autre / non précisé"],l:["SAS"],dt:["Base principale"],v:"Validé",m:"Régulière"},
+{t:"Requête-type de sélection d'ALD exonérantes actives une année civile donnée",u:"requete-type-de-selection-dald-exonerantes-actives-une-annee",a:"Agence",o:["Ciblage / sélection de population"],d:[],l:["SAS"],dt:["Base principale"],v:"",m:"Régulière"},
+{t:"Requête-type de sélection de séjours dans le PMSI-MCO en fonction des diagnostics d'hospitalisation",u:"requete-type-de-selection-de-sejours-dans-le-pmsi-mco-en",a:"Agence",o:["Ciblage / sélection de population"],d:[],l:["SAS"],dt:["Base principale"],v:"",m:"Régulière"},
+{t:"Requête-type de sélection de prestations dans le DCIR impliquant une table d'actes affinés de codage",u:"requete-type-de-selection-de-prestations-dans-le-dcir",a:"Agence",o:["Ciblage / sélection de population"],d:["Autre / non précisé"],l:["SAS"],dt:["Base principale"],v:"Validé",m:"Régulière"},
+{t:"Bassins Industriels et Santé (BIS) — Asthme de l'enfant : variations spatio-temporelles",u:"bassins-industriels-et-sante-bis-asthme-de-lenfant",a:"Agence",o:[],d:[],l:["SAS"],dt:["Données tabulaires"],v:"Non validé",m:"Pas de maintenance"},
+{t:"Dépistage des cancers féminins chez les femmes résidant dans les Hauts-de-France",u:"depistage-des-cancers-feminins-chez-les-femmes-residant-dans",a:"Non précisé",o:["Requête à la demande"],d:["Cancers","Autre / non précisé"],l:["SAS","SQL"],dt:["Base principale"],v:"Non validé",m:"Pas de maintenance"},
+{t:"Analyse des Interruptions Volontaires de Grossesse (IVG) en établissements de santé, France métropolitaine (2019-2023)",u:"analyse-des-interruptions-volontaires-de-grossesse-ivg-en",a:"Plateforme de données",o:["Requête à la demande"],d:["Autre / non précisé"],l:["SAS","SQL"],dt:["Base principale"],v:"Non validé",m:"Pas de maintenance"},
+{t:"Dépistage biologique de l'insuffisance rénale chronique (IRC)",u:"depistage-biologique-de-linsuffisance-renale-chronique-irc",a:"Administrations et ministère",o:["Ciblage / sélection de population"],d:["Maladies cardio-vasculaires","Diabète","Autre / non précisé"],l:["SAS"],dt:["Base principale"],v:"Non validé",m:"Ad-hoc"},
+{t:"Cartographie des pathologies et des dépenses, version G12",u:"cartographie-des-pathologies-et-des-depenses-version-g12",a:"Administrations et ministère",o:["Ciblage / sélection de population","Cartographie des pathologies","Requête à la demande"],d:["Cancers","Maladies cardio-vasculaires","Diabète","Maladies neurodégénératives","Santé mentale et Psychiatrie","Périnatalité et Santé reproductive","Maladies respiratoires","Maladies infectieuses","Autre / non précisé"],l:["R"],dt:["Base principale"],v:"Non validé",m:"Régulière"},
+{t:"Prédiction améliorée par l'IA de la progression de la sténose aortique — étude PROGRESSA",u:"prediction-amelioree-par-lia-de-la-progression-de-la-stenose",a:"Établissement d'enseignement supérieur",o:["Identification & dépistage"],d:["Maladies cardio-vasculaires"],l:["Python"],dt:["Base principale","Données d'imagerie","Données tabulaires"],v:"Validé",m:"Ad-hoc"},
+{t:"EDS-Pseudo — pseudonymisation de documents médicaux",u:"eds-pseudo-pseudonymisation-de-documents-medicaux",a:"Établissement de santé",o:["Anonymisation / pseudonymisation"],d:[],l:["Python"],dt:["Texte libre"],v:"Validé",m:"Régulière"},
+{t:"EDS-PDF — extraction d'informations textuelles à partir de documents PDF",u:"eds-pdf-extraction-dinformations-textuelles-partir-de",a:"Établissement de santé",o:["Autre"],d:["Transversal (tous domaines)"],l:["Python","Autre"],dt:["Autre"],v:"Validé",m:"Régulière"},
+{t:"EDS-NLP — framework de NLP modulaire et rapide (PyTorch / spaCy) pour notes cliniques en français",u:"eds-nlp-framework-de-nlp-modulaire-et-rapide-compatible-avec",a:"Établissement de santé",o:["Autre"],d:["Transversal (tous domaines)"],l:["Python"],dt:["Autre"],v:"",m:"Régulière"},
+{t:"EPICODIAB — typage du diabète dans le SNDS à partir d'une cohorte appariée aux dossiers médicaux électroniques",u:"epicodiab-developpement-dun-algorithme-de-typage-du-diabete",a:"Bureau d'étude",o:["Identification & dépistage"],d:["Diabète"],l:["SAS","R"],dt:[],v:"Non validé",m:""},
+{t:"PICOLA",u:"picola",a:"Non précisé",o:["Autre"],d:["Cancers"],l:["Python"],dt:[],v:"Validé",m:"Ad-hoc"},
+{t:"Suivi de la vaccination pour la coqueluche des femmes enceintes",u:"suivi-de-la-vaccination-pour-la-coqueluche-des-femmes",a:"Administrations et ministère",o:["Ciblage / sélection de population"],d:["Périnatalité et Santé reproductive"],l:["SAS"],dt:["Base principale"],v:"Non validé",m:"Ad-hoc"},
+{t:"Analyse démographique et dénombrements des indemnités journalières pour risque maladie, populations en ALD (France entière)",u:"analyse-demographiques-et-denombrements-des-indemnites",a:"Plateforme de données",o:["Requête à la demande"],d:["Autre / non précisé"],l:["SAS"],dt:["Base principale"],v:"Non validé",m:"Ad-hoc"},
+{t:"Délivrance psychotropes hypnotiques",u:"delivrance-psychotropes-hypnotiques",a:"Organisme de recherche",o:["Ciblage / sélection de population","Identification & dépistage"],d:["Autre / non précisé"],l:["SAS","SQL"],dt:["Base principale"],v:"Non validé",m:"Pas de maintenance"},
+{t:"Génération terrasse",u:"generation-terrasse",a:"Organisme de recherche",o:["Ciblage / sélection de population"],d:["Autre / non précisé"],l:["Python"],dt:["Autre"],v:"Non validé",m:"Pas de maintenance"},
+{t:"Statistiques territoriales d'exposition sonore selon la méthode réglementaire CNOSSOS",u:"developpement-dalgorithmes-pour-calculer-des-statistiques",a:"Organisme de recherche",o:["Autre"],d:["Autre / non précisé"],l:["Python"],dt:["Données tabulaires"],v:"",m:""},
+{t:"Combicancer — pipeline de pré-traitement et reformatage OMOP-like (OMOPisation du SNDS natif)",u:"combicancer-pipeline-de-pre-processing-et-de-reformatage-en",a:"Organisme de recherche",o:["Transformation de données"],d:["Cancers"],l:["Python","SQL","Autre"],dt:["Base principale"],v:"Non validé",m:"Ad-hoc"},
+{t:"SndsTools — fonctions d'extraction paramétrables et réutilisables sur les périmètres courants du SNDS (PMSI, DCIR, ALD…)",u:"sndstools-developpement-de-fonctions-dextraction",a:"Autorités administratives indépendantes et consultatives",o:["Ciblage / sélection de population","Transformation de données"],d:["Cancers","Maladies cardio-vasculaires","Diabète","Maladies neurodégénératives","Santé mentale et Psychiatrie","Périnatalité et Santé reproductive","Maladies respiratoires","Maladies infectieuses","Enfants et Pédiatrie","Personnes âgées et Gériatrie","Autre / non précisé"],l:["R","SQL"],dt:["Base principale","Données tabulaires"],v:"Validé",m:"Régulière"},
+{t:"La base RAC (restes à charge en santé après Assurance maladie obligatoire)",u:"la-base-rac-restes-charge-en-sante-apres-assurance-maladie",a:"Administrations et ministère",o:["Transformation de données"],d:["Autre / non précisé"],l:["R","Spark"],dt:["Base principale"],v:"Validé",m:"Régulière"},
+{t:"Code du catalogue de métadonnées de la Plateforme des données de santé",u:"code-du-catalogue-de-metadonnees-de-la-pds",a:"Établissement de santé",o:["Autre"],d:["Cancers","Maladies cardio-vasculaires","Diabète","Maladies neurodégénératives","Santé mentale et Psychiatrie","Périnatalité et Santé reproductive","Maladies respiratoires","Maladies infectieuses","Enfants et Pédiatrie","Personnes âgées et Gériatrie","Autre / non précisé"],l:["Python"],dt:["Autre"],v:"Validé",m:"Régulière"},
+{t:"MORS — Module d'Observation et de Rapprochement du Statut vital",u:"mors-module-dobservation-et-de-rapprochement-statut-vital",a:"Établissement de santé",o:["Identification & dépistage","Requête à la demande"],d:["Autre / non précisé"],l:["Python"],dt:["Autre"],v:"Validé",m:"Ad-hoc"},
+{t:"Elixhauser — calcul du score de comorbidité d'Elixhauser à partir des données PMSI MCO",u:"elixhauser-calcul-du-score-de-comorbidite-delixhauser-partir",a:"Bureau d'étude",o:["Autre"],d:["Cancers","Maladies cardio-vasculaires","Santé mentale et Psychiatrie","Maladies respiratoires","Autre / non précisé"],l:["SAS"],dt:["Base principale"],v:"",m:"Ad-hoc"},
+{t:"Outil de génération de bases de données synthétiques et réalistes du SNIIRAM",u:"outil-de-generation-de-bases-de-donnees-synthetiques-et",a:"Organisme de recherche",o:["Autre"],d:["Cancers","Maladies cardio-vasculaires","Diabète","Maladies neurodégénératives","Santé mentale et Psychiatrie","Périnatalité et Santé reproductive","Maladies respiratoires","Maladies infectieuses","Enfants et Pédiatrie","Personnes âgées et Gériatrie","Autre / non précisé"],l:["Python"],dt:["Données synthétiques"],v:"En cours de validation",m:"Ad-hoc"},
+{t:"Validation et amélioration d'un algorithme d'identification de poussées de sclérose en plaques dans le SNDS",u:"validation-et-amelioration-dun-algorithme-didentification-de",a:"Organisme de recherche",o:["Ciblage / sélection de population"],d:["Maladies neurodégénératives"],l:["SAS"],dt:["Base principale"],v:"Validé",m:"Pas de maintenance"},
+{t:"Prédiction de la sévérité (score NIHSS) des AVC ischémiques (I63_) hospitalisés",u:"developpement-et-validation-dun-algorithme-de-prediction-de",a:"Agence",o:["Transformation de données","Cartographie des pathologies"],d:["Maladies cardio-vasculaires"],l:["R"],dt:["Base principale"],v:"Validé",m:"Pas de maintenance"},
+{t:"Ciblage de patients atteints d'hépatite virale B et C chronique et phénotypes associés",u:"algorithmes-de-ciblage-de-patients-atteints-dhepatite-virale",a:"Organisme de recherche",o:["Ciblage / sélection de population","Transformation de données"],d:["Maladies infectieuses"],l:["Python","R","SQL"],dt:["Base principale","Données tabulaires"],v:"En cours de validation",m:"Ad-hoc"},
+{t:"Repérage des individus avec limitations psychiques, intellectuelles ou cognitives à partir des données de l'Assurance maladie",u:"developpement-dun-algorithme-de-reperage-des-individus-0",a:"Organisme de recherche",o:["Ciblage / sélection de population"],d:["Santé mentale et Psychiatrie"],l:["SAS"],dt:["Base principale"],v:"En cours de validation",m:"Ad-hoc"},
+{t:"Repérage des individus avec limitations motrices ou organiques à partir des données de l'Assurance maladie",u:"developpement-dun-algorithme-de-reperage-des-individus-avec",a:"Autre",o:["Ciblage / sélection de population"],d:["Autre / non précisé"],l:["SAS"],dt:["Base principale"],v:"En cours de validation",m:"Ad-hoc"},
+{t:"Data Challenge TissueNet — détection des lésions dans les biopsies cervicales",u:"data-challenge-tissuenet-detection-des-lesions-dans-les",a:"Société savante",o:["Identification & dépistage"],d:["Cancers"],l:["Python"],dt:["Données d'imagerie"],v:"Validé",m:"Pas de maintenance"},
+{t:"Data Challenge VisioMel — prédiction de la récidive à 5 ans des mélanomes localisés",u:"data-challenge-visiomel-prediction-de-la-recidive-5-ans-des",a:"Société savante",o:["Identification & dépistage"],d:["Cancers"],l:["Python"],dt:["Données d'imagerie"],v:"Validé",m:"Pas de maintenance"},
+{t:"sndskit — moteur de recherche pour extraire pathologies (ICD), actes (CCAM) et traitements (ATC) dans les tables du SNDS",u:"sndskit-moteur-de-recherche-pour-extraire-les-donnees-de",a:"Industriel santé",o:["Transformation de données","Cartographie des pathologies","Requête à la demande"],d:["Autre / non précisé"],l:["Python"],dt:["Base principale","Données tabulaires"],v:"Validé",m:"Ad-hoc"},
+{t:"D-IA-GNO-DENT Data Challenge — détection précoce des maladies rares à composante dentaire, orale et faciale",u:"d-ia-gno-dent-data-challenge-favoriser-lacces-la-detection",a:"Établissement / Fédération de santé",o:["Identification & dépistage"],d:["Autre / non précisé"],l:["Python"],dt:["Données d'imagerie"],v:"Validé",m:"Pas de maintenance"},
+{t:"Allergen Chip Challenge — identification des allergènes en cause dans une réaction allergique",u:"allergen-chip-challenge-identification-des-allergenes-en",a:"Société savante",o:["Identification & dépistage"],d:["Autre / non précisé"],l:["Python"],dt:["Données tabulaires"],v:"Validé",m:"Pas de maintenance"},
+{t:"Data Challenge DigiLut — amélioration de la détection du rejet de greffe pulmonaire",u:"data-challenge-digilut-amelioration-de-la-detection-du-rejet",a:"Établissement de santé",o:["Identification & dépistage"],d:["Maladies respiratoires"],l:["Python"],dt:["Données d'imagerie"],v:"Validé",m:"Pas de maintenance"},
+{t:"Data Challenge Cytolog-IA — automatisation du diagnostic des pathologies en hématologie biologique",u:"data-challenge-cytolog-ia-automatisation-du-diagnostic-des",a:"Non précisé",o:["Identification & dépistage"],d:["Cancers"],l:["Python"],dt:["Données d'imagerie"],v:"Non validé",m:"Ad-hoc"}
+];
+
+// derived "type de fiche" — this is the one facet the source site never gave you
+function kindOf(title){
+  if(/data challenge/i.test(title)) return "Data challenge";
+  if(/^requête-type/i.test(title)) return "Requête-type prête à l'emploi";
+  return "Algorithme / outil";
+}
+DATA.forEach(p=>{p.kind = kindOf(p.t); p.href = BASE_URL + p.u;});
+
+const DOMAIN_COLOR = {
+  "Cancers":"var(--c-cancers)",
+  "Maladies cardio-vasculaires":"var(--c-cardio)",
+  "Diabète":"var(--c-diabete)",
+  "Maladies neurodégénératives":"var(--c-neuro)",
+  "Santé mentale et Psychiatrie":"var(--c-mentale)",
+  "Périnatalité et Santé reproductive":"var(--c-perinat)",
+  "Maladies respiratoires":"var(--c-respi)",
+  "Maladies infectieuses":"var(--c-infect)",
+  "Enfants et Pédiatrie":"var(--c-pediatrie)",
+  "Personnes âgées et Gériatrie":"var(--c-geriatrie)",
+  "Radiologie et imagerie médicale":"var(--c-radio)",
+  "Transversal (tous domaines)":"var(--c-tous)",
+  "Autre / non précisé":"var(--c-autre)"
+};
+
+const FACET_DEFS = [
+  {key:"kind", label:"Type de fiche", multi:"kind"},
+  {key:"d", label:"Domaine médical", multi:"array", colored:true},
+  {key:"o", label:"Type d'outil", multi:"array"},
+  {key:"l", label:"Langage", multi:"array"},
+  {key:"dt", label:"Données utilisées", multi:"array"},
+  {key:"v", label:"Validation", multi:"kind"},
+  {key:"m", label:"Maintenance", multi:"kind"},
+  {key:"a", label:"Type d'auteur", multi:"kind"}
+];
+
+let active = {}; // key -> Set of selected values
+FACET_DEFS.forEach(f=>active[f.key]=new Set());
+let searchTerm = "";
+
+function valuesOf(p,key){
+  const f = FACET_DEFS.find(x=>x.key===key);
+  if(f.multi==="array") return p[key] && p[key].length ? p[key] : ["Non renseigné"];
+  return [p[key] || "Non renseigné"];
+}
+
+function matches(p){
+  if(searchTerm){
+    const hay = (p.t+" "+p.a+" "+p.o.join(" ")+" "+p.d.join(" ")+" "+p.l.join(" ")).toLowerCase();
+    if(!hay.includes(searchTerm)) return false;
+  }
+  for(const f of FACET_DEFS){
+    const sel = active[f.key];
+    if(sel.size===0) continue;
+    const vals = valuesOf(p,f.key);
+    if(!vals.some(v=>sel.has(v))) return false;
+  }
+  return true;
+}
+
+function countFor(key,value){
+  // count matches if this value were added, given all *other* active facets + search
+  return DATA.filter(p=>{
+    if(searchTerm){
+      const hay = (p.t+" "+p.a+" "+p.o.join(" ")+" "+p.d.join(" ")+" "+p.l.join(" ")).toLowerCase();
+      if(!hay.includes(searchTerm)) return false;
+    }
+    for(const f of FACET_DEFS){
+      if(f.key===key) continue;
+      const sel = active[f.key];
+      if(sel.size===0) continue;
+      const vals = valuesOf(p,f.key);
+      if(!vals.some(v=>sel.has(v))) return false;
+    }
+    return valuesOf(p,key).includes(value);
+  }).length;
+}
+
+function statusClass(v){
+  if(v==="Validé") return "valide";
+  if(v==="En cours de validation") return "encours";
+  if(v==="Non validé") return "nonvalide";
+  return "na";
+}
+
+function renderFacets(){
+  const wrap = document.getElementById("facets");
+  wrap.innerHTML = "";
+  FACET_DEFS.forEach(f=>{
+    const allValues = new Set();
+    DATA.forEach(p=>valuesOf(p,f.key).forEach(v=>allValues.add(v)));
+    const sorted = [...allValues].sort((a,b)=>countFor(f.key,b)-countFor(f.key,a) || a.localeCompare(b,'fr'));
+
+    const details = document.createElement("details");
+    details.className = "facet";
+    if(active[f.key].size>0) details.open = true;
+    const summary = document.createElement("summary");
+    summary.textContent = f.label;
+    details.appendChild(summary);
+
+    const optsWrap = document.createElement("div");
+    optsWrap.className = "facet-opts";
+
+    sorted.forEach(val=>{
+      const c = countFor(f.key,val);
+      const label = document.createElement("label");
+      label.className = "facet-opt" + (c===0 && !active[f.key].has(val) ? " disabled":"");
+      const left = document.createElement("span");
+      left.className = "label";
+      const cb = document.createElement("input");
+      cb.type = "checkbox";
+      cb.checked = active[f.key].has(val);
+      cb.addEventListener("change", ()=>{
+        if(cb.checked) active[f.key].add(val); else active[f.key].delete(val);
+        render();
+      });
+      left.appendChild(cb);
+      if(f.colored){
+        const sw = document.createElement("span");
+        sw.className = "swatch";
+        sw.style.background = DOMAIN_COLOR[val] || "var(--c-autre)";
+        left.appendChild(sw);
+      }
+      const txt = document.createElement("span");
+      txt.textContent = val;
+      left.appendChild(txt);
+      label.appendChild(left);
+      const count = document.createElement("span");
+      count.className = "count";
+      count.textContent = c;
+      label.appendChild(count);
+      optsWrap.appendChild(label);
+    });
+    details.appendChild(optsWrap);
+    wrap.appendChild(details);
+  });
+}
+
+function renderChips(){
+  const chips = document.getElementById("chips");
+  chips.innerHTML = "";
+  FACET_DEFS.forEach(f=>{
+    active[f.key].forEach(val=>{
+      const chip = document.createElement("span");
+      chip.className = "chip";
+      chip.innerHTML = `<span>${f.label}: ${val}</span>`;
+      const btn = document.createElement("button");
+      btn.textContent = "×";
+      btn.addEventListener("click", ()=>{active[f.key].delete(val); render();});
+      chip.appendChild(btn);
+      chips.appendChild(chip);
+    });
+  });
+}
+
+function cardHTML(p){
+  const domainColor = p.d.length ? (DOMAIN_COLOR[p.d[0]] || "var(--c-autre)") : "var(--c-autre)";
+  const domains = p.d.length ? p.d : ["Non précisé"];
+  return `
+  <article class="card" style="--tab:${domainColor}">
+    <div class="card-kind">${p.kind}</div>
+    <h3><a href="${p.href}" target="_blank" rel="noopener">${p.t}</a></h3>
+    <div class="card-meta">
+      <div class="meta-row"><span class="k">Auteur</span><span class="v">${p.a}</span></div>
+      <div class="meta-row"><span class="k">Domaine</span><span class="v tagset">${domains.map(d=>`<span class="tag domain" style="color:${DOMAIN_COLOR[d]||'var(--c-autre)'}">${d}</span>`).join("")}</span></div>
+      <div class="meta-row"><span class="k">Outil</span><span class="v tagset">${p.o.length?p.o.map(o=>`<span class="tag">${o}</span>`).join(""):'<span class="tag">Non précisé</span>'}</span></div>
+      <div class="meta-row"><span class="k">Langage</span><span class="v tagset">${p.l.map(l=>`<span class="tag">${l}</span>`).join("")}</span></div>
+      <div class="meta-row"><span class="k">Données</span><span class="v tagset">${p.dt.length?p.dt.map(d=>`<span class="tag">${d}</span>`).join(""):'<span class="tag">Non précisé</span>'}</span></div>
+    </div>
+    <div class="status-row">
+      <span class="status ${statusClass(p.v)}">${p.v || "Validation non précisée"}</span>
+      <span class="status ${p.m ? 'na':''}" style="${p.m?'':''}">${p.m || "Maintenance non précisée"}</span>
+    </div>
+  </article>`;
+}
+
+function render(){
+  renderFacets();
+  renderChips();
+  const filtered = DATA.filter(matches).sort((a,b)=>a.t.localeCompare(b.t,'fr'));
+  document.getElementById("resultCount").textContent = `${filtered.length} fiche${filtered.length>1?'s':''} sur ${DATA.length}`;
+  const grid = document.getElementById("grid");
+  grid.innerHTML = filtered.length
+    ? filtered.map(cardHTML).join("")
+    : `<div class="empty">Aucune fiche ne correspond à ces filtres.<br>Essayez d'en retirer un ou de reformuler la recherche.</div>`;
+}
+
+document.getElementById("search").addEventListener("input", e=>{
+  searchTerm = e.target.value.trim().toLowerCase();
+  render();
+});
+document.getElementById("resetBtn").addEventListener("click", ()=>{
+  FACET_DEFS.forEach(f=>active[f.key].clear());
+  searchTerm = "";
+  document.getElementById("search").value = "";
+  render();
+});
+
+render();
+</script>
+</body>
+</html>
