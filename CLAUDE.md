@@ -88,12 +88,17 @@ schema is explicit unfinished work (see PROJECT_GOAL.md's risk list).
   should parse on these section headings rather than on fragile CSS selectors.
 - Known cross-source inconsistencies on the HDH side itself (not extraction
   errors): MORS is attributed to "GCS HUGO" in an HDH announcement article but
-  to CHU de Rennes on its own official project page; "Top Diabète" and
-  "Cartographie des pathologies G12" point to the *same* GitLab repo
-  (`boas/cnam/cartographie-des-pathologies`) and are likely two listings for
-  one tool; EHDEN/Persephone's real GitLab path is
-  `applications-du-hdh/snds_omop`, not the `boas/hdh/snds_omop` an earlier
-  approximate mirror-based match suggested.
+  to CHU de Rennes on its own official project page; EHDEN/Persephone's real
+  GitLab path is `applications-du-hdh/snds_omop`, not the `boas/hdh/snds_omop`
+  an earlier approximate mirror-based match suggested.
+- **Correction (verified live 2026-07-07, during issue #2's implementation):**
+  "Top Diabète" and "Cartographie des pathologies G12" do **not** share a
+  repo — live detail pages show distinct paths
+  (`boas/cnam/top-diabete` vs. `boas/cnam/cartographie-des-pathologies`).
+  An earlier version of this note claimed they pointed at the same repo —
+  that was wrong (likely another stale mirror-based approximation, same
+  category of error as the EHDEN/Persephone case above). Don't assume
+  `related_to` will match this pair.
 
 ## Before building the automated pipeline
 

@@ -1,0 +1,106 @@
+[
+  {
+    "slug": "ehden-persephone",
+    "titre": "EHDEN / Persephone",
+    "type_auteur": "Plateforme de données",
+    "objectif": [
+      "Outils de manipulation / transformation de la base principale du  SNDS"
+    ],
+    "domaine_medical": [
+      "Autre"
+    ],
+    "langage": [
+      "SQL"
+    ],
+    "donnees_application": [
+      "Base principale"
+    ],
+    "validation": "Validé",
+    "maintenance": "Ad-hoc (en fonction des remontées de problèmes, suggestions)",
+    "code_disponible_sur": "https://gitlab.com/healthdatahub/applications-du-hdh/snds_omop",
+    "url_fiche_boas_source": "https://www.health-data-hub.fr/bibliotheque-ouverte-algorithmes-sante/ehden-persephone",
+    "last_checked": "2026-07-07T19:44:31.651961+00:00",
+    "related_to": []
+  },
+  {
+    "slug": "algorithme-pour-construire-le-top-diabete-de-la-cartographie",
+    "titre": "Algorithme pour construire le top diabète de la cartographie de la CNAM (version G8) pour l’année 2019 en langage SAS et Python",
+    "type_auteur": "Administrations et ministère",
+    "objectif": [
+      "Outils de cartographie des pathologies",
+      "Outils de ciblage dans la base principale du SNDS"
+    ],
+    "domaine_medical": [
+      "Diabète"
+    ],
+    "langage": [
+      "Python",
+      "SAS"
+    ],
+    "donnees_application": [
+      "Base principale"
+    ],
+    "validation": "Non validé",
+    "maintenance": "Ad-hoc (en fonction des remontées de problèmes, suggestions)",
+    "code_disponible_sur": "https://gitlab.com/healthdatahub/boas/cnam/top-diabete",
+    "url_fiche_boas_source": "https://www.health-data-hub.fr/bibliotheque-ouverte-algorithmes-sante/algorithme-pour-construire-le-top-diabete-de-la-cartographie",
+    "last_checked": "2026-07-07T19:44:31.651961+00:00",
+    "related_to": []
+  },
+  {
+    "slug": "cartographie-des-pathologies-et-des-depenses-version-g12",
+    "titre": "Cartographie des pathologies et des dépenses, version G12",
+    "type_auteur": "Administrations et ministère",
+    "objectif": [
+      "Outils de ciblage dans la base principale du SNDS",
+      "Outils de cartographie des pathologies",
+      "Algorithmes de requête à la demande"
+    ],
+    "domaine_medical": [
+      "Cancers",
+      "Maladies cardio-vasculaires",
+      "Diabète",
+      "Maladies neurodégénératives",
+      "Santé mentale et Psychiatrie",
+      "Périnatalité et Santé reproductive",
+      "Maladies respiratoires",
+      "Maladies infectieuses",
+      "Autre"
+    ],
+    "langage": [
+      "R"
+    ],
+    "donnees_application": [
+      "Base principale"
+    ],
+    "validation": "Non validé",
+    "maintenance": "Régulière",
+    "code_disponible_sur": "https://gitlab.com/healthdatahub/boas/cnam/cartographie-des-pathologies",
+    "url_fiche_boas_source": "https://www.health-data-hub.fr/bibliotheque-ouverte-algorithmes-sante/cartographie-des-pathologies-et-des-depenses-version-g12",
+    "last_checked": "2026-07-07T19:44:31.651961+00:00",
+    "related_to": []
+  },
+  {
+    "slug": "eds-nlp-framework-de-nlp-modulaire-et-rapide-compatible-avec",
+    "titre": "EDS-NLP : framework de NLP modulaire et rapide, compatible avec Pytorch et spaCy, offrant un support sur mesure pour les notes cliniques en français.",
+    "type_auteur": "Établissement de santé",
+    "objectif": [
+      "Autre"
+    ],
+    "domaine_medical": [
+      "Tous"
+    ],
+    "langage": [
+      "Python"
+    ],
+    "donnees_application": [
+      "Autre"
+    ],
+    "validation": "",
+    "maintenance": "Régulière",
+    "code_disponible_sur": "https://github.com/aphp/edsnlp",
+    "url_fiche_boas_source": "https://www.health-data-hub.fr/bibliotheque-ouverte-algorithmes-sante/eds-nlp-framework-de-nlp-modulaire-et-rapide-compatible-avec",
+    "last_checked": "2026-07-07T19:44:31.651961+00:00",
+    "related_to": []
+  }
+]
