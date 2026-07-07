@@ -13,8 +13,10 @@ previous_data (added/removed/changed/renamed classification and the abort
 thresholds) is out of scope here — see issue #4 ("Diff engine").
 """
 
+import json
 from dataclasses import dataclass, field
 from datetime import datetime, timezone
+from pathlib import Path
 
 from pipeline.parse import parse_detail_page
 
@@ -26,6 +28,18 @@ class PipelineResult:
     should_commit: bool
     abort_reason: str | None
     changelog_entry: dict | None = field(default=None)
+
+
+def write_output(result: PipelineResult, data_path: Path, changelog_path: Path) -> None:
+    """Writes a PipelineResult's data.json + changelog.json to the given paths.
+
+    Shared by the fixture-based and live-crawl entrypoints so the output
+    format only needs to change in one place.
+    """
+    data_path.write_text(json.dumps(result.new_data, ensure_ascii=False, indent=2) + "\n", encoding="utf-8")
+    changelog_path.write_text(
+        json.dumps([result.changelog_entry], ensure_ascii=False, indent=2) + "\n", encoding="utf-8"
+    )
 
 
 def _compute_related_to(records: list[dict]) -> None:

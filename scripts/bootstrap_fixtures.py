@@ -8,14 +8,13 @@ diffing against a prior data.json is issue #4's scope; this script always
 runs the bootstrap path (previous_data=[]).
 """
 
-import json
 import sys
 from pathlib import Path
 
 REPO_ROOT = Path(__file__).resolve().parent.parent
 sys.path.insert(0, str(REPO_ROOT))
 
-from pipeline.core import run_pipeline  # noqa: E402
+from pipeline.core import run_pipeline, write_output  # noqa: E402
 
 FIXTURES_DIR = REPO_ROOT / "tests" / "fixtures"
 BASE_URL = "https://www.health-data-hub.fr/bibliotheque-ouverte-algorithmes-sante/"
@@ -40,11 +39,7 @@ def main() -> None:
 
     data_path = REPO_ROOT / "site" / "data.json"
     changelog_path = REPO_ROOT / "site" / "changelog.json"
-
-    data_path.write_text(json.dumps(result.new_data, ensure_ascii=False, indent=2) + "\n", encoding="utf-8")
-    changelog_path.write_text(
-        json.dumps([result.changelog_entry], ensure_ascii=False, indent=2) + "\n", encoding="utf-8"
-    )
+    write_output(result, data_path, changelog_path)
 
     print(f"Wrote {len(result.new_data)} records to {data_path}")
     print(f"Wrote 1 changelog entry to {changelog_path}")

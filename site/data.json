@@ -19,22 +19,346 @@
     "maintenance": "Ad-hoc (en fonction des remontées de problèmes, suggestions)",
     "code_disponible_sur": "https://gitlab.com/healthdatahub/applications-du-hdh/snds_omop",
     "url_fiche_boas_source": "https://www.health-data-hub.fr/bibliotheque-ouverte-algorithmes-sante/ehden-persephone",
-    "last_checked": "2026-07-07T19:44:31.651961+00:00",
+    "last_checked": "2026-07-07T20:12:02.078807+00:00",
     "related_to": []
   },
   {
-    "slug": "algorithme-pour-construire-le-top-diabete-de-la-cartographie",
-    "titre": "Algorithme pour construire le top diabète de la cartographie de la CNAM (version G8) pour l’année 2019 en langage SAS et Python",
+    "slug": "prise-en-charge-des-allergies-aux-pollens-dans-la-region",
+    "titre": "Prise en charge des allergies aux pollens dans la région Normandie",
+    "type_auteur": "Plateforme de données",
+    "objectif": [
+      "Algorithmes de requête à la demande"
+    ],
+    "domaine_medical": [
+      "Maladies respiratoires"
+    ],
+    "langage": [
+      "SAS",
+      "SQL"
+    ],
+    "donnees_application": [
+      "Base principale"
+    ],
+    "validation": "Non validé",
+    "maintenance": "Pas de maintenance",
+    "code_disponible_sur": "https://gitlab.com/healthdatahub/boas/hdh/requ-tes-la-demande/allergies-normandie",
+    "url_fiche_boas_source": "https://www.health-data-hub.fr/bibliotheque-ouverte-algorithmes-sante/prise-en-charge-des-allergies-aux-pollens-dans-la-region",
+    "last_checked": "2026-07-07T20:12:02.078807+00:00",
+    "related_to": []
+  },
+  {
+    "slug": "indicateurs-sur-le-statut-dayant-droit-entre-2012-et-2020",
+    "titre": "Indicateurs sur le statut d’ayant droit entre 2012 et 2020.",
+    "type_auteur": "Autre",
+    "objectif": [
+      "Algorithmes de requête à la demande"
+    ],
+    "domaine_medical": [
+      "Autre"
+    ],
+    "langage": [
+      "SAS",
+      "SQL"
+    ],
+    "donnees_application": [
+      "Base principale"
+    ],
+    "validation": "Non validé",
+    "maintenance": "Pas de maintenance",
+    "code_disponible_sur": "https://gitlab.com/healthdatahub/boas/hdh/requ-tes-la-demande/femmes-ayant-droit/-/tree/main",
+    "url_fiche_boas_source": "https://www.health-data-hub.fr/bibliotheque-ouverte-algorithmes-sante/indicateurs-sur-le-statut-dayant-droit-entre-2012-et-2020",
+    "last_checked": "2026-07-07T20:12:02.078807+00:00",
+    "related_to": []
+  },
+  {
+    "slug": "magic-loop",
+    "titre": "Magic Loop",
     "type_auteur": "Administrations et ministère",
     "objectif": [
-      "Outils de cartographie des pathologies",
+      "Outils de manipulation / transformation de la base principale du  SNDS"
+    ],
+    "domaine_medical": [],
+    "langage": [
+      "SAS"
+    ],
+    "donnees_application": [
+      "Base principale"
+    ],
+    "validation": "Validé",
+    "maintenance": "Ad-hoc (en fonction des remontées de problèmes, suggestions)",
+    "code_disponible_sur": "https://gitlab.com/healthdatahub/boas/ars/magic-loop",
+    "url_fiche_boas_source": "https://www.health-data-hub.fr/bibliotheque-ouverte-algorithmes-sante/magic-loop",
+    "last_checked": "2026-07-07T20:12:02.078807+00:00",
+    "related_to": []
+  },
+  {
+    "slug": "prise-en-charge-des-patients-atteints-de-la-maladie-de-crohn",
+    "titre": "Prise en charge des patients atteints de la maladie de Crohn et de la rectocolite hémorragique.",
+    "type_auteur": "Plateforme de données",
+    "objectif": [
+      "Algorithmes de requête à la demande"
+    ],
+    "domaine_medical": [
+      "Autre"
+    ],
+    "langage": [
+      "SAS",
+      "SQL"
+    ],
+    "donnees_application": [
+      "Base principale"
+    ],
+    "validation": "Non validé",
+    "maintenance": "Pas de maintenance",
+    "code_disponible_sur": "https://gitlab.com/healthdatahub/boas/hdh/requ-tes-la-demande/afa",
+    "url_fiche_boas_source": "https://www.health-data-hub.fr/bibliotheque-ouverte-algorithmes-sante/prise-en-charge-des-patients-atteints-de-la-maladie-de-crohn",
+    "last_checked": "2026-07-07T20:12:02.078807+00:00",
+    "related_to": []
+  },
+  {
+    "slug": "bibliotheque-doutils-de-pseudonymisation-dattributs-et-de",
+    "titre": "Bibliothèque d’outils de pseudonymisation d’attributs et de clichés radiographiques contenus dans les fichiers DICOM",
+    "type_auteur": "Start-up",
+    "objectif": [
+      "Outils de pseudonymisation / anonymisation"
+    ],
+    "domaine_medical": [
+      "Cancers",
+      "Radiologie et imagerie médicale"
+    ],
+    "langage": [
+      "Python"
+    ],
+    "donnees_application": [
+      "Données d’imagerie",
+      "Données tabulaires",
+      "Texte libre"
+    ],
+    "validation": "Validé",
+    "maintenance": "Ad-hoc (en fonction des remontées de problèmes, suggestions)",
+    "code_disponible_sur": "https://github.com/Epiconcept-Paris/deidcm",
+    "url_fiche_boas_source": "https://www.health-data-hub.fr/bibliotheque-ouverte-algorithmes-sante/bibliotheque-doutils-de-pseudonymisation-dattributs-et-de",
+    "last_checked": "2026-07-07T20:12:02.078807+00:00",
+    "related_to": []
+  },
+  {
+    "slug": "extract-metadata-extraction-de-metadonnees-partir-dune-base",
+    "titre": "Extract-Metadata - extraction de métadonnées à partir d’une base de données tabulaire et d'imagerie au format DICOM.",
+    "type_auteur": "Autre",
+    "objectif": [
+      "Autre"
+    ],
+    "domaine_medical": [
+      "Autre"
+    ],
+    "langage": [
+      "Python"
+    ],
+    "donnees_application": [
+      "Données d’imagerie",
+      "Données tabulaires"
+    ],
+    "validation": "Validé",
+    "maintenance": "Régulière",
+    "code_disponible_sur": "https://gitlab.com/healthdatahub/boas/hdh/extract_metadata",
+    "url_fiche_boas_source": "https://www.health-data-hub.fr/bibliotheque-ouverte-algorithmes-sante/extract-metadata-extraction-de-metadonnees-partir-dune-base",
+    "last_checked": "2026-07-07T20:12:02.078807+00:00",
+    "related_to": []
+  },
+  {
+    "slug": "programmes-dextraction-des-donnees-du-snds-acces-permanent",
+    "titre": "Programmes d’extraction des données du SNDS (accès permanent)",
+    "type_auteur": "Organisme de recherche",
+    "objectif": [
+      "Outils de ciblage dans la base principale du SNDS",
+      "Outils de manipulation / transformation de la base principale du  SNDS",
+      "Outils d’identification de patients / dépistage biologique"
+    ],
+    "domaine_medical": [
+      "Autre"
+    ],
+    "langage": [
+      "SAS"
+    ],
+    "donnees_application": [
+      "Base principale"
+    ],
+    "validation": "Validé",
+    "maintenance": "Ad-hoc (en fonction des remontées de problèmes, suggestions)",
+    "code_disponible_sur": "https://gitlab.com/Drugs-Safe-R/Outils_SNDS/-/tree/main?ref_type=heads",
+    "url_fiche_boas_source": "https://www.health-data-hub.fr/bibliotheque-ouverte-algorithmes-sante/programmes-dextraction-des-donnees-du-snds-acces-permanent",
+    "last_checked": "2026-07-07T20:12:02.078807+00:00",
+    "related_to": []
+  },
+  {
+    "slug": "jointure-dune-table-avec-les-referentiels-beneficiaires",
+    "titre": "Jointure d’une table avec les référentiels bénéficiaires (IR_BEN_R et IR_BEN_R_ARC).",
+    "type_auteur": "Agence",
+    "objectif": [
       "Outils de ciblage dans la base principale du SNDS"
     ],
     "domaine_medical": [
-      "Diabète"
+      "Autres"
     ],
     "langage": [
-      "Python",
+      "SAS"
+    ],
+    "donnees_application": [
+      "Base principale"
+    ],
+    "validation": "Validé",
+    "maintenance": "Régulière",
+    "code_disponible_sur": "https://gitlab.com/healthdatahub/boas/sant-publique-france/requ-tes-types/programme-dcir_prestations_medicaments.sas",
+    "url_fiche_boas_source": "https://www.health-data-hub.fr/bibliotheque-ouverte-algorithmes-sante/jointure-dune-table-avec-les-referentiels-beneficiaires",
+    "last_checked": "2026-07-07T20:12:02.078807+00:00",
+    "related_to": []
+  },
+  {
+    "slug": "requete-type-de-selection-dald-exonerantes-actives-une-annee",
+    "titre": "Requête-type de sélection d’ALD exonérantes actives une année civile donnée.",
+    "type_auteur": "Agence",
+    "objectif": [
+      "Outils de ciblage dans la base principale du SNDS"
+    ],
+    "domaine_medical": [],
+    "langage": [
+      "SAS"
+    ],
+    "donnees_application": [
+      "Base principale"
+    ],
+    "validation": "",
+    "maintenance": "Régulière",
+    "code_disponible_sur": "https://gitlab.com/healthdatahub/boas/sant-publique-france/requ-tes-types/programme-ald_select_par_code_cim.sas",
+    "url_fiche_boas_source": "https://www.health-data-hub.fr/bibliotheque-ouverte-algorithmes-sante/requete-type-de-selection-dald-exonerantes-actives-une-annee",
+    "last_checked": "2026-07-07T20:12:02.078807+00:00",
+    "related_to": []
+  },
+  {
+    "slug": "requete-type-de-selection-de-sejours-dans-le-pmsi-mco-en",
+    "titre": "Requête-type de sélection de séjours dans le PMSI-MCO en fonction des diagnostics d’hospitalisation.",
+    "type_auteur": "Agence",
+    "objectif": [
+      "Outils de ciblage dans la base principale du SNDS"
+    ],
+    "domaine_medical": [],
+    "langage": [
+      "SAS"
+    ],
+    "donnees_application": [
+      "Base principale"
+    ],
+    "validation": "",
+    "maintenance": "Régulière",
+    "code_disponible_sur": "https://gitlab.com/healthdatahub/boas/sant-publique-france/requ-tes-types/programme-pmsi_mco_select_sejours_par_diag.sas",
+    "url_fiche_boas_source": "https://www.health-data-hub.fr/bibliotheque-ouverte-algorithmes-sante/requete-type-de-selection-de-sejours-dans-le-pmsi-mco-en",
+    "last_checked": "2026-07-07T20:12:02.078807+00:00",
+    "related_to": []
+  },
+  {
+    "slug": "requete-type-de-selection-de-prestations-dans-le-dcir",
+    "titre": "Requête-type de sélection de prestations dans le DCIR impliquant une table d'actes affinés de codage.",
+    "type_auteur": "Agence",
+    "objectif": [
+      "Outils de ciblage dans la base principale du SNDS"
+    ],
+    "domaine_medical": [
+      "Autre"
+    ],
+    "langage": [
+      "SAS"
+    ],
+    "donnees_application": [
+      "Base principale"
+    ],
+    "validation": "Validé",
+    "maintenance": "Régulière",
+    "code_disponible_sur": "https://gitlab.com/healthdatahub/boas/sant-publique-france/requ-tes-types/programme-dcir_prestations_medicaments.sas2",
+    "url_fiche_boas_source": "https://www.health-data-hub.fr/bibliotheque-ouverte-algorithmes-sante/requete-type-de-selection-de-prestations-dans-le-dcir",
+    "last_checked": "2026-07-07T20:12:02.078807+00:00",
+    "related_to": []
+  },
+  {
+    "slug": "bassins-industriels-et-sante-bis-asthme-de-lenfant",
+    "titre": "Bassins Industriels et Santé (BIS) :  Asthme de l’enfant : variations spatio-temporelles de l’incidence et étude des facteurs géographiques de variation en France",
+    "type_auteur": "Agence",
+    "objectif": [],
+    "domaine_medical": [],
+    "langage": [
+      "SAS"
+    ],
+    "donnees_application": [
+      "Données tabulaires"
+    ],
+    "validation": "Non validé",
+    "maintenance": "Pas de maintenance",
+    "code_disponible_sur": "https://gitlab.com/healthdatahub/boas/sant-publique-france/projet-bis",
+    "url_fiche_boas_source": "https://www.health-data-hub.fr/bibliotheque-ouverte-algorithmes-sante/bassins-industriels-et-sante-bis-asthme-de-lenfant",
+    "last_checked": "2026-07-07T20:12:02.078807+00:00",
+    "related_to": []
+  },
+  {
+    "slug": "depistage-des-cancers-feminins-chez-les-femmes-residant-dans",
+    "titre": "Dépistage des cancers féminins chez les femmes résidant dans les Hauts-de-France",
+    "type_auteur": "",
+    "objectif": [
+      "Algorithmes de requête à la demande"
+    ],
+    "domaine_medical": [
+      "Cancers",
+      "Autre"
+    ],
+    "langage": [
+      "SAS",
+      "SQL"
+    ],
+    "donnees_application": [
+      "Base principale"
+    ],
+    "validation": "Non validé",
+    "maintenance": "Pas de maintenance",
+    "code_disponible_sur": "https://gitlab.com/healthdatahub/boas/hdh/requ-tes-la-demande/depistage-des-cancers-feminins",
+    "url_fiche_boas_source": "https://www.health-data-hub.fr/bibliotheque-ouverte-algorithmes-sante/depistage-des-cancers-feminins-chez-les-femmes-residant-dans",
+    "last_checked": "2026-07-07T20:12:02.078807+00:00",
+    "related_to": []
+  },
+  {
+    "slug": "analyse-des-interruptions-volontaires-de-grossesse-ivg-en",
+    "titre": "Analyse des Interruptions Volontaires de Grossesse (IVG) en établissements de santé en France métropolitaine (2019-2023)",
+    "type_auteur": "Plateforme de données",
+    "objectif": [
+      "Algorithmes de requête à la demande"
+    ],
+    "domaine_medical": [
+      "Autre"
+    ],
+    "langage": [
+      "SAS",
+      "SQL"
+    ],
+    "donnees_application": [
+      "Base principale"
+    ],
+    "validation": "Non validé",
+    "maintenance": "Pas de maintenance",
+    "code_disponible_sur": "https://gitlab.com/healthdatahub/boas/hdh/requ-tes-la-demande/interruptions-volontaires-de-grossesse",
+    "url_fiche_boas_source": "https://www.health-data-hub.fr/bibliotheque-ouverte-algorithmes-sante/analyse-des-interruptions-volontaires-de-grossesse-ivg-en",
+    "last_checked": "2026-07-07T20:12:02.078807+00:00",
+    "related_to": []
+  },
+  {
+    "slug": "depistage-biologique-de-linsuffisance-renale-chronique-irc",
+    "titre": "Dépistage biologique de l'insuffisance rénale chronique (IRC)",
+    "type_auteur": "Administrations et ministère",
+    "objectif": [
+      "Outils de ciblage dans la base principale du SNDS"
+    ],
+    "domaine_medical": [
+      "Maladies cardio-vasculaires",
+      "Diabète",
+      "Autre"
+    ],
+    "langage": [
       "SAS"
     ],
     "donnees_application": [
@@ -42,9 +366,9 @@
     ],
     "validation": "Non validé",
     "maintenance": "Ad-hoc (en fonction des remontées de problèmes, suggestions)",
-    "code_disponible_sur": "https://gitlab.com/healthdatahub/boas/cnam/top-diabete",
-    "url_fiche_boas_source": "https://www.health-data-hub.fr/bibliotheque-ouverte-algorithmes-sante/algorithme-pour-construire-le-top-diabete-de-la-cartographie",
-    "last_checked": "2026-07-07T19:44:31.651961+00:00",
+    "code_disponible_sur": "https://gitlab.com/healthdatahub/boas/ars/depistage-biologique-insuffisance-renale-chronique",
+    "url_fiche_boas_source": "https://www.health-data-hub.fr/bibliotheque-ouverte-algorithmes-sante/depistage-biologique-de-linsuffisance-renale-chronique-irc",
+    "last_checked": "2026-07-07T20:12:02.078807+00:00",
     "related_to": []
   },
   {
@@ -77,7 +401,77 @@
     "maintenance": "Régulière",
     "code_disponible_sur": "https://gitlab.com/healthdatahub/boas/cnam/cartographie-des-pathologies",
     "url_fiche_boas_source": "https://www.health-data-hub.fr/bibliotheque-ouverte-algorithmes-sante/cartographie-des-pathologies-et-des-depenses-version-g12",
-    "last_checked": "2026-07-07T19:44:31.651961+00:00",
+    "last_checked": "2026-07-07T20:12:02.078807+00:00",
+    "related_to": []
+  },
+  {
+    "slug": "prediction-amelioree-par-lia-de-la-progression-de-la-stenose",
+    "titre": "Prédiction améliorée par l'IA de la progression de la sténose aortique : Aperçu de l'étude PROGRESSA",
+    "type_auteur": "Établissement d’enseignement supérieur",
+    "objectif": [
+      "Outils d’identification de patients / dépistage biologique"
+    ],
+    "domaine_medical": [
+      "Maladies cardio-vasculaires"
+    ],
+    "langage": [
+      "Python"
+    ],
+    "donnees_application": [
+      "Base principale",
+      "Données d’imagerie",
+      "Données tabulaires"
+    ],
+    "validation": "Validé",
+    "maintenance": "Ad-hoc (en fonction des remontées de problèmes, suggestions)",
+    "code_disponible_sur": "https://github.com/spell00/PROGRESSA",
+    "url_fiche_boas_source": "https://www.health-data-hub.fr/bibliotheque-ouverte-algorithmes-sante/prediction-amelioree-par-lia-de-la-progression-de-la-stenose",
+    "last_checked": "2026-07-07T20:12:02.078807+00:00",
+    "related_to": []
+  },
+  {
+    "slug": "eds-pseudo-pseudonymisation-de-documents-medicaux",
+    "titre": "EDS-Pseudo : Pseudonymisation de documents médicaux",
+    "type_auteur": "Établissement de santé",
+    "objectif": [
+      "Outils de pseudonymisation / anonymisation"
+    ],
+    "domaine_medical": [],
+    "langage": [
+      "Python"
+    ],
+    "donnees_application": [
+      "Texte libre"
+    ],
+    "validation": "Validé",
+    "maintenance": "Régulière",
+    "code_disponible_sur": "https://github.com/aphp/eds-pseudo",
+    "url_fiche_boas_source": "https://www.health-data-hub.fr/bibliotheque-ouverte-algorithmes-sante/eds-pseudo-pseudonymisation-de-documents-medicaux",
+    "last_checked": "2026-07-07T20:12:02.078807+00:00",
+    "related_to": []
+  },
+  {
+    "slug": "eds-pdf-extraction-dinformations-textuelles-partir-de",
+    "titre": "EDS-PDF : Extraction d'informations textuelles à partir de documents PDF.",
+    "type_auteur": "Établissement de santé",
+    "objectif": [
+      "Autre"
+    ],
+    "domaine_medical": [
+      "Tous"
+    ],
+    "langage": [
+      "Python",
+      "Autre"
+    ],
+    "donnees_application": [
+      "Autre"
+    ],
+    "validation": "Validé",
+    "maintenance": "Régulière",
+    "code_disponible_sur": "https://github.com/aphp/edspdf",
+    "url_fiche_boas_source": "https://www.health-data-hub.fr/bibliotheque-ouverte-algorithmes-sante/eds-pdf-extraction-dinformations-textuelles-partir-de",
+    "last_checked": "2026-07-07T20:12:02.078807+00:00",
     "related_to": []
   },
   {
@@ -100,7 +494,678 @@
     "maintenance": "Régulière",
     "code_disponible_sur": "https://github.com/aphp/edsnlp",
     "url_fiche_boas_source": "https://www.health-data-hub.fr/bibliotheque-ouverte-algorithmes-sante/eds-nlp-framework-de-nlp-modulaire-et-rapide-compatible-avec",
-    "last_checked": "2026-07-07T19:44:31.651961+00:00",
+    "last_checked": "2026-07-07T20:12:02.078807+00:00",
+    "related_to": []
+  },
+  {
+    "slug": "epicodiab-developpement-dun-algorithme-de-typage-du-diabete",
+    "titre": "EPICODIAB : développement d'un algorithme de typage du diabète dans le SNDS à partir d’une cohorte de patients appariée aux dossiers médicaux électroniques (EMR)",
+    "type_auteur": "Bureau d’étude",
+    "objectif": [
+      "Outils d’identification de patients / dépistage biologique"
+    ],
+    "domaine_medical": [
+      "Diabète"
+    ],
+    "langage": [
+      "SAS",
+      "R"
+    ],
+    "donnees_application": [],
+    "validation": "Non validé",
+    "maintenance": "",
+    "code_disponible_sur": "https://gitlab.com/healthdatahub/boas/iqvia/epicodiab",
+    "url_fiche_boas_source": "https://www.health-data-hub.fr/bibliotheque-ouverte-algorithmes-sante/epicodiab-developpement-dun-algorithme-de-typage-du-diabete",
+    "last_checked": "2026-07-07T20:12:02.078807+00:00",
+    "related_to": []
+  },
+  {
+    "slug": "picola",
+    "titre": "PICOLA",
+    "type_auteur": "",
+    "objectif": [
+      "Autre"
+    ],
+    "domaine_medical": [
+      "Cancers"
+    ],
+    "langage": [
+      "Python"
+    ],
+    "donnees_application": [],
+    "validation": "Validé",
+    "maintenance": "Ad-hoc (en fonction des remontées de problèmes, suggestions)",
+    "code_disponible_sur": "https://gitlab.com/healthdatahub/boas/hdh/picola",
+    "url_fiche_boas_source": "https://www.health-data-hub.fr/bibliotheque-ouverte-algorithmes-sante/picola",
+    "last_checked": "2026-07-07T20:12:02.078807+00:00",
+    "related_to": []
+  },
+  {
+    "slug": "suivi-de-la-vaccination-pour-la-coqueluche-des-femmes",
+    "titre": "Suivi de la vaccination pour la coqueluche des Femmes enceintes",
+    "type_auteur": "Administrations et ministère",
+    "objectif": [
+      "Outils de ciblage dans la base principale du SNDS"
+    ],
+    "domaine_medical": [
+      "Périnatalité et Santé reproductive"
+    ],
+    "langage": [
+      "SAS"
+    ],
+    "donnees_application": [
+      "Base principale"
+    ],
+    "validation": "Non validé",
+    "maintenance": "Ad-hoc (en fonction des remontées de problèmes, suggestions)",
+    "code_disponible_sur": "https://gitlab.com/healthdatahub/boas/ars/suivi-de-la-vaccination-pour-la-coqueluche-des-femmes-enceintes",
+    "url_fiche_boas_source": "https://www.health-data-hub.fr/bibliotheque-ouverte-algorithmes-sante/suivi-de-la-vaccination-pour-la-coqueluche-des-femmes",
+    "last_checked": "2026-07-07T20:12:02.078807+00:00",
+    "related_to": []
+  },
+  {
+    "slug": "analyse-demographiques-et-denombrements-des-indemnites",
+    "titre": "Analyse démographiques et dénombrements des indemnités journalières pour risque maladie de plusieurs populations en ALD actives en France entière",
+    "type_auteur": "Plateforme de données",
+    "objectif": [
+      "Algorithmes de requête à la demande"
+    ],
+    "domaine_medical": [
+      "Autre"
+    ],
+    "langage": [
+      "SAS"
+    ],
+    "donnees_application": [
+      "Base principale"
+    ],
+    "validation": "Non validé",
+    "maintenance": "Ad-hoc (en fonction des remontées de problèmes, suggestions)",
+    "code_disponible_sur": "https://gitlab.com/healthdatahub/boas/hdh/requ-tes-la-demande/analyse-demographiques-et-denombrements-des-indemnites-journalieres-pour-risque-maladie-de-plusieurs-populations-en-ald-actives-en-france-entiere",
+    "url_fiche_boas_source": "https://www.health-data-hub.fr/bibliotheque-ouverte-algorithmes-sante/analyse-demographiques-et-denombrements-des-indemnites",
+    "last_checked": "2026-07-07T20:12:02.078807+00:00",
+    "related_to": []
+  },
+  {
+    "slug": "delivrance-psychotropes-hypnotiques",
+    "titre": "Délivrance psychotropes hypnotiques",
+    "type_auteur": "Organisme de recherche",
+    "objectif": [
+      "Outils de ciblage dans la base principale du SNDS",
+      "Outils d’identification de patients / dépistage biologique"
+    ],
+    "domaine_medical": [
+      "Autres"
+    ],
+    "langage": [
+      "SAS",
+      "SQL"
+    ],
+    "donnees_application": [
+      "Base principale"
+    ],
+    "validation": "Non validé",
+    "maintenance": "Pas de maintenance",
+    "code_disponible_sur": "https://gitlab.com/healthdatahub/boas/observatoire-r-gional-de-sant/delivrance-psychotropes-hypnotiques",
+    "url_fiche_boas_source": "https://www.health-data-hub.fr/bibliotheque-ouverte-algorithmes-sante/delivrance-psychotropes-hypnotiques",
+    "last_checked": "2026-07-07T20:12:02.078807+00:00",
+    "related_to": []
+  },
+  {
+    "slug": "generation-terrasse",
+    "titre": "Génération terrasse",
+    "type_auteur": "Organisme de recherche",
+    "objectif": [
+      "Outils de ciblage dans la base principale du SNDS"
+    ],
+    "domaine_medical": [
+      "Autre"
+    ],
+    "langage": [
+      "Python"
+    ],
+    "donnees_application": [
+      "Autre"
+    ],
+    "validation": "Non validé",
+    "maintenance": "Pas de maintenance",
+    "code_disponible_sur": "https://gitlab.com/healthdatahub/boas/bruitparif/generation-terrasses",
+    "url_fiche_boas_source": "https://www.health-data-hub.fr/bibliotheque-ouverte-algorithmes-sante/generation-terrasse",
+    "last_checked": "2026-07-07T20:12:02.078807+00:00",
+    "related_to": []
+  },
+  {
+    "slug": "developpement-dalgorithmes-pour-calculer-des-statistiques",
+    "titre": "Développement d’algorithmes pour calculer des statistiques territoriales d’exposition sonore selon des méthodes réglementaires (ex : méthode CNOSSOS) imposée par la directive européenne",
+    "type_auteur": "Organisme de recherche",
+    "objectif": [
+      "Autre"
+    ],
+    "domaine_medical": [
+      "Autres"
+    ],
+    "langage": [
+      "Python"
+    ],
+    "donnees_application": [
+      "Données tabulaires"
+    ],
+    "validation": "",
+    "maintenance": "",
+    "code_disponible_sur": "https://gitlab.com/healthdatahub/boas/bruitparif/exposition-sonore-des-populations",
+    "url_fiche_boas_source": "https://www.health-data-hub.fr/bibliotheque-ouverte-algorithmes-sante/developpement-dalgorithmes-pour-calculer-des-statistiques",
+    "last_checked": "2026-07-07T20:12:02.078807+00:00",
+    "related_to": []
+  },
+  {
+    "slug": "combicancer-pipeline-de-pre-processing-et-de-reformatage-en",
+    "titre": "Combicancer : pipeline de pré-processing et de reformatage en format OMOP-like - OMOPization du SNDS natif.",
+    "type_auteur": "Organisme de recherche",
+    "objectif": [
+      "Outils de manipulation / transformation de la base principale du  SNDS"
+    ],
+    "domaine_medical": [
+      "Cancers"
+    ],
+    "langage": [
+      "Python",
+      "SQL",
+      "Autre"
+    ],
+    "donnees_application": [
+      "Base principale"
+    ],
+    "validation": "Non validé",
+    "maintenance": "Ad-hoc (en fonction des remontées de problèmes, suggestions)",
+    "code_disponible_sur": "https://gitlab.com/healthdatahub/boas/institut-curie/combicancer",
+    "url_fiche_boas_source": "https://www.health-data-hub.fr/bibliotheque-ouverte-algorithmes-sante/combicancer-pipeline-de-pre-processing-et-de-reformatage-en",
+    "last_checked": "2026-07-07T20:12:02.078807+00:00",
+    "related_to": []
+  },
+  {
+    "slug": "sndstools-developpement-de-fonctions-dextraction",
+    "titre": "SndsTools : développement de fonctions d’extraction paramétrables et réutilisables sur les périmètres les plus communs pour les études sur le SDNS (PMSI, DCIR, ALD, …)",
+    "type_auteur": "Autorités administratives indépendantes et consultatives",
+    "objectif": [
+      "Outils de ciblage dans la base principale du SNDS",
+      "Outils de manipulation / transformation de la base principale du  SNDS"
+    ],
+    "domaine_medical": [
+      "Cancers",
+      "Maladies cardio-vasculaires",
+      "Diabète",
+      "Maladies neurodégénératives",
+      "Santé mentale et Psychiatrie",
+      "Périnatalité et Santé reproductive",
+      "Maladies respiratoires",
+      "Maladies infectieuses",
+      "Enfants et Pédiatrie",
+      "Personnes âgées et Gériatrie",
+      "Autre"
+    ],
+    "langage": [
+      "R",
+      "SQL"
+    ],
+    "donnees_application": [
+      "Base principale",
+      "Données tabulaires"
+    ],
+    "validation": "Validé",
+    "maintenance": "Régulière",
+    "code_disponible_sur": "https://github.com/SNDStoolers/sndsTools",
+    "url_fiche_boas_source": "https://www.health-data-hub.fr/bibliotheque-ouverte-algorithmes-sante/sndstools-developpement-de-fonctions-dextraction",
+    "last_checked": "2026-07-07T20:12:02.078807+00:00",
+    "related_to": []
+  },
+  {
+    "slug": "la-base-rac-restes-charge-en-sante-apres-assurance-maladie",
+    "titre": "La base RAC (restes à charge en santé après Assurance maladie obligatoire)",
+    "type_auteur": "Administrations et ministère",
+    "objectif": [
+      "Outils de manipulation / transformation de la base principale du  SNDS"
+    ],
+    "domaine_medical": [
+      "Autre"
+    ],
+    "langage": [
+      "R",
+      "Spark"
+    ],
+    "donnees_application": [
+      "Base principale"
+    ],
+    "validation": "Validé",
+    "maintenance": "Régulière",
+    "code_disponible_sur": "https://git.drees.fr/drees_code_public/outils/restes-a-charge-snds/-/tree/main",
+    "url_fiche_boas_source": "https://www.health-data-hub.fr/bibliotheque-ouverte-algorithmes-sante/la-base-rac-restes-charge-en-sante-apres-assurance-maladie",
+    "last_checked": "2026-07-07T20:12:02.078807+00:00",
+    "related_to": []
+  },
+  {
+    "slug": "code-du-catalogue-de-metadonnees-de-la-pds",
+    "titre": "Code du catalogue de métadonnées de la PDS",
+    "type_auteur": "Établissement de santé",
+    "objectif": [
+      "Autre"
+    ],
+    "domaine_medical": [
+      "Cancers",
+      "Maladies cardio-vasculaires",
+      "Diabète",
+      "Maladies neurodégénératives",
+      "Santé mentale et Psychiatrie",
+      "Périnatalité et Santé reproductive",
+      "Maladies respiratoires",
+      "Maladies infectieuses",
+      "Enfants et Pédiatrie",
+      "Personnes âgées et Gériatrie",
+      "Autre"
+    ],
+    "langage": [
+      "Python"
+    ],
+    "donnees_application": [
+      "Autre"
+    ],
+    "validation": "Validé",
+    "maintenance": "Régulière",
+    "code_disponible_sur": "https://gitlab.com/healthdatahub/boas/hdh/catalogue-de-metadonnees/",
+    "url_fiche_boas_source": "https://www.health-data-hub.fr/bibliotheque-ouverte-algorithmes-sante/code-du-catalogue-de-metadonnees-de-la-pds",
+    "last_checked": "2026-07-07T20:12:02.078807+00:00",
+    "related_to": []
+  },
+  {
+    "slug": "mors-module-dobservation-et-de-rapprochement-statut-vital",
+    "titre": "MORS : Module d’Observation et de Rapprochement Statut vital",
+    "type_auteur": "Établissement de santé",
+    "objectif": [
+      "Outils d’identification de patients / dépistage biologique",
+      "Algorithmes de requête à la demande"
+    ],
+    "domaine_medical": [
+      "Autre"
+    ],
+    "langage": [
+      "Python"
+    ],
+    "donnees_application": [
+      "Autre"
+    ],
+    "validation": "Validé",
+    "maintenance": "Ad-hoc (en fonction des remontées de problèmes, suggestions)",
+    "code_disponible_sur": "https://gitlab.com/ricdc/outils/mors",
+    "url_fiche_boas_source": "https://www.health-data-hub.fr/bibliotheque-ouverte-algorithmes-sante/mors-module-dobservation-et-de-rapprochement-statut-vital",
+    "last_checked": "2026-07-07T20:12:02.078807+00:00",
+    "related_to": []
+  },
+  {
+    "slug": "elixhauser-calcul-du-score-de-comorbidite-delixhauser-partir",
+    "titre": "Elixhauser - Calcul du score de comorbidité d’Elixhauser à partir des données PMSI MCO de la base principale du SNDS",
+    "type_auteur": "Bureau d’étude",
+    "objectif": [
+      "Autre"
+    ],
+    "domaine_medical": [
+      "Cancers",
+      "Maladies cardio-vasculaires",
+      "Santé mentale et Psychiatrie",
+      "Maladies respiratoires",
+      "Autre"
+    ],
+    "langage": [
+      "SAS"
+    ],
+    "donnees_application": [
+      "Base principale"
+    ],
+    "validation": "",
+    "maintenance": "Ad-hoc (en fonction des remontées de problèmes, suggestions)",
+    "code_disponible_sur": "https://gitlab.com/healthdatahub/boas/cemka/elixhauser",
+    "url_fiche_boas_source": "https://www.health-data-hub.fr/bibliotheque-ouverte-algorithmes-sante/elixhauser-calcul-du-score-de-comorbidite-delixhauser-partir",
+    "last_checked": "2026-07-07T20:12:02.078807+00:00",
+    "related_to": []
+  },
+  {
+    "slug": "validation-et-amelioration-dun-algorithme-didentification-de",
+    "titre": "Validation et amélioration d’un algorithme d’identification de poussées de sclérose en plaques dans le SNDS",
+    "type_auteur": "Organisme de recherche",
+    "objectif": [
+      "Outils de ciblage dans la base principale du SNDS"
+    ],
+    "domaine_medical": [
+      "Maladies neurodégénératives"
+    ],
+    "langage": [
+      "SAS"
+    ],
+    "donnees_application": [
+      "Base principale"
+    ],
+    "validation": "Validé",
+    "maintenance": "Pas de maintenance",
+    "code_disponible_sur": "https://gitlab.com/healthdatahub/boas/bpe/dionisos",
+    "url_fiche_boas_source": "https://www.health-data-hub.fr/bibliotheque-ouverte-algorithmes-sante/validation-et-amelioration-dun-algorithme-didentification-de",
+    "last_checked": "2026-07-07T20:12:02.078807+00:00",
+    "related_to": []
+  },
+  {
+    "slug": "developpement-et-validation-dun-algorithme-de-prediction-de",
+    "titre": "Développement et validation d’un algorithme de prédiction de la sévérité (score NIHSS) des AVC ischémiques (code CIM-10 « I63_ ») hospitalisés",
+    "type_auteur": "Agence",
+    "objectif": [
+      "Outils de manipulation / transformation de la base principale du  SNDS",
+      "Outils de cartographie des pathologies"
+    ],
+    "domaine_medical": [
+      "Maladies cardio-vasculaires"
+    ],
+    "langage": [
+      "R"
+    ],
+    "donnees_application": [
+      "Base principale"
+    ],
+    "validation": "Validé",
+    "maintenance": "Pas de maintenance",
+    "code_disponible_sur": "https://gitlab.com/healthdatahub/boas/sant-publique-france/alia-1",
+    "url_fiche_boas_source": "https://www.health-data-hub.fr/bibliotheque-ouverte-algorithmes-sante/developpement-et-validation-dun-algorithme-de-prediction-de",
+    "last_checked": "2026-07-07T20:12:02.078807+00:00",
+    "related_to": []
+  },
+  {
+    "slug": "algorithmes-de-ciblage-de-patients-atteints-dhepatite-virale",
+    "titre": "Algorithmes de ciblage de patients atteints d'hépatite virale B et C chronique, ainsi que de phénotypes associés à ces maladies (cirrhoses, porteurs dits “sains”, hépatite Delta)",
+    "type_auteur": "Organisme de recherche",
+    "objectif": [
+      "Outils de ciblage dans la base principale du SNDS",
+      "Outils de manipulation / transformation de la base principale du  SNDS"
+    ],
+    "domaine_medical": [
+      "Maladies infectieuses"
+    ],
+    "langage": [
+      "Python",
+      "R",
+      "SQL"
+    ],
+    "donnees_application": [
+      "Base principale",
+      "Données tabulaires"
+    ],
+    "validation": "En cours de validation",
+    "maintenance": "Ad-hoc (en fonction des remontées de problèmes, suggestions)",
+    "code_disponible_sur": "https://gitlab.com/healthdatahub/boas/iplesp/hepaviralgo",
+    "url_fiche_boas_source": "https://www.health-data-hub.fr/bibliotheque-ouverte-algorithmes-sante/algorithmes-de-ciblage-de-patients-atteints-dhepatite-virale",
+    "last_checked": "2026-07-07T20:12:02.078807+00:00",
+    "related_to": []
+  },
+  {
+    "slug": "developpement-dun-algorithme-de-reperage-des-individus-0",
+    "titre": "Développement d'un algorithme de repérage des individus avec des limitations psychiques, intellectuelles ou cognitives à partir des données de l'Assurance maladie en France",
+    "type_auteur": "Organisme de recherche",
+    "objectif": [
+      "Outils de ciblage dans la base principale du SNDS"
+    ],
+    "domaine_medical": [
+      "Santé mentale et Psychiatrie"
+    ],
+    "langage": [
+      "SAS"
+    ],
+    "donnees_application": [
+      "Base principale"
+    ],
+    "validation": "En cours de validation",
+    "maintenance": "Ad-hoc (en fonction des remontées de problèmes, suggestions)",
+    "code_disponible_sur": "https://gitlab.com/healthdatahub/boas/irdes/rish/pic",
+    "url_fiche_boas_source": "https://www.health-data-hub.fr/bibliotheque-ouverte-algorithmes-sante/developpement-dun-algorithme-de-reperage-des-individus-0",
+    "last_checked": "2026-07-07T20:12:02.078807+00:00",
+    "related_to": []
+  },
+  {
+    "slug": "developpement-dun-algorithme-de-reperage-des-individus-avec",
+    "titre": "Développement d'un algorithme de repérage des individus avec des limitations motrices ou organiques à partir des données de l'Assurance maladie en France",
+    "type_auteur": "Autre",
+    "objectif": [
+      "Outils de ciblage dans la base principale du SNDS"
+    ],
+    "domaine_medical": [
+      "Autre"
+    ],
+    "langage": [
+      "SAS"
+    ],
+    "donnees_application": [
+      "Base principale"
+    ],
+    "validation": "En cours de validation",
+    "maintenance": "Ad-hoc (en fonction des remontées de problèmes, suggestions)",
+    "code_disponible_sur": "https://gitlab.com/healthdatahub/boas/irdes/rish/handicap-moteur-et-organique",
+    "url_fiche_boas_source": "https://www.health-data-hub.fr/bibliotheque-ouverte-algorithmes-sante/developpement-dun-algorithme-de-reperage-des-individus-avec",
+    "last_checked": "2026-07-07T20:12:02.078807+00:00",
+    "related_to": []
+  },
+  {
+    "slug": "data-challenge-tissuenet-detection-des-lesions-dans-les",
+    "titre": "Data Challenge TissueNet - Détection des lésions dans les biopsies cervicales",
+    "type_auteur": "Société savante",
+    "objectif": [
+      "Outils d’identification de patients / dépistage biologique"
+    ],
+    "domaine_medical": [
+      "Cancers"
+    ],
+    "langage": [
+      "Python"
+    ],
+    "donnees_application": [
+      "Données d’imagerie"
+    ],
+    "validation": "Validé",
+    "maintenance": "Pas de maintenance",
+    "code_disponible_sur": "https://github.com/drivendataorg/tissuenet-cervical-biopsies",
+    "url_fiche_boas_source": "https://www.health-data-hub.fr/bibliotheque-ouverte-algorithmes-sante/data-challenge-tissuenet-detection-des-lesions-dans-les",
+    "last_checked": "2026-07-07T20:12:02.078807+00:00",
+    "related_to": []
+  },
+  {
+    "slug": "data-challenge-visiomel-prediction-de-la-recidive-5-ans-des",
+    "titre": "Data Challenge VisioMel - Prédiction de la récidive à 5 ans des mélanomes localisés",
+    "type_auteur": "Société savante",
+    "objectif": [
+      "Outils d’identification de patients / dépistage biologique"
+    ],
+    "domaine_medical": [
+      "Cancers"
+    ],
+    "langage": [
+      "Python"
+    ],
+    "donnees_application": [
+      "Données d’imagerie"
+    ],
+    "validation": "Validé",
+    "maintenance": "Pas de maintenance",
+    "code_disponible_sur": "https://github.com/drivendataorg/visiomel-melanoma",
+    "url_fiche_boas_source": "https://www.health-data-hub.fr/bibliotheque-ouverte-algorithmes-sante/data-challenge-visiomel-prediction-de-la-recidive-5-ans-des",
+    "last_checked": "2026-07-07T20:12:02.078807+00:00",
+    "related_to": []
+  },
+  {
+    "slug": "sndskit-moteur-de-recherche-pour-extraire-les-donnees-de",
+    "titre": "sndskit : moteur de recherche pour extraire les données de pathologies (codes ICD), d’actes médicaux (codes CCAM) et de traitements (codes ATC) dans les tables du SNDS",
+    "type_auteur": "Industriel santé",
+    "objectif": [
+      "Outils de manipulation / transformation de la base principale du  SNDS",
+      "Outils de cartographie des pathologies",
+      "Algorithmes de requête à la demande"
+    ],
+    "domaine_medical": [
+      "Autres"
+    ],
+    "langage": [
+      "Python"
+    ],
+    "donnees_application": [
+      "Base principale",
+      "Données tabulaires"
+    ],
+    "validation": "Validé",
+    "maintenance": "Ad-hoc (en fonction des remontées de problèmes, suggestions)",
+    "code_disponible_sur": "https://github.com/Epiconcept-Paris/sndskit",
+    "url_fiche_boas_source": "https://www.health-data-hub.fr/bibliotheque-ouverte-algorithmes-sante/sndskit-moteur-de-recherche-pour-extraire-les-donnees-de",
+    "last_checked": "2026-07-07T20:12:02.078807+00:00",
+    "related_to": []
+  },
+  {
+    "slug": "d-ia-gno-dent-data-challenge-favoriser-lacces-la-detection",
+    "titre": "D-IA-GNO-DENT Data Challenge - Favoriser l'accès à la détection précoce des maladies rares à composante dentaire, orale et faciale",
+    "type_auteur": "Établissement / Fédération de santé (CHU, CHRU, CLCC, clinique, etc…)",
+    "objectif": [
+      "Outils d’identification de patients / dépistage biologique"
+    ],
+    "domaine_medical": [
+      "Autre"
+    ],
+    "langage": [
+      "Python"
+    ],
+    "donnees_application": [
+      "Données d’imagerie"
+    ],
+    "validation": "Validé",
+    "maintenance": "Pas de maintenance",
+    "code_disponible_sur": "https://github.com/Trustii-team/Diagnodent",
+    "url_fiche_boas_source": "https://www.health-data-hub.fr/bibliotheque-ouverte-algorithmes-sante/d-ia-gno-dent-data-challenge-favoriser-lacces-la-detection",
+    "last_checked": "2026-07-07T20:12:02.078807+00:00",
+    "related_to": []
+  },
+  {
+    "slug": "allergen-chip-challenge-identification-des-allergenes-en",
+    "titre": "Allergen Chip Challenge - Identification des allergènes en cause dans une réaction allergique",
+    "type_auteur": "Société savante",
+    "objectif": [
+      "Outils d’identification de patients / dépistage biologique"
+    ],
+    "domaine_medical": [
+      "Autre"
+    ],
+    "langage": [
+      "Python"
+    ],
+    "donnees_application": [
+      "Données tabulaires"
+    ],
+    "validation": "Validé",
+    "maintenance": "Pas de maintenance",
+    "code_disponible_sur": "https://github.com/Trustii-team/AllergenChip",
+    "url_fiche_boas_source": "https://www.health-data-hub.fr/bibliotheque-ouverte-algorithmes-sante/allergen-chip-challenge-identification-des-allergenes-en",
+    "last_checked": "2026-07-07T20:12:02.078807+00:00",
+    "related_to": []
+  },
+  {
+    "slug": "data-challenge-digilut-amelioration-de-la-detection-du-rejet",
+    "titre": "Data Challenge DigiLut - Amélioration de la détection du rejet de greffe pulmonaire",
+    "type_auteur": "Établissement de santé",
+    "objectif": [
+      "Outils d’identification de patients / dépistage biologique"
+    ],
+    "domaine_medical": [
+      "Maladies respiratoires"
+    ],
+    "langage": [
+      "Python"
+    ],
+    "donnees_application": [
+      "Données d’imagerie"
+    ],
+    "validation": "Validé",
+    "maintenance": "Pas de maintenance",
+    "code_disponible_sur": "https://github.com/trustii-team/DigiLut",
+    "url_fiche_boas_source": "https://www.health-data-hub.fr/bibliotheque-ouverte-algorithmes-sante/data-challenge-digilut-amelioration-de-la-detection-du-rejet",
+    "last_checked": "2026-07-07T20:12:02.078807+00:00",
+    "related_to": []
+  },
+  {
+    "slug": "data-challenge-cytolog-ia-automatisation-du-diagnostic-des",
+    "titre": "Data challenge Cytolog-IA : automatisation du diagnostic des pathologies en hématologie biologique",
+    "type_auteur": "",
+    "objectif": [
+      "Outils d’identification de patients / dépistage biologique"
+    ],
+    "domaine_medical": [
+      "Cancers"
+    ],
+    "langage": [
+      "Python"
+    ],
+    "donnees_application": [
+      "Données d’imagerie"
+    ],
+    "validation": "Non validé",
+    "maintenance": "Ad-hoc (en fonction des remontées de problèmes, suggestions)",
+    "code_disponible_sur": "https://github.com/Trustii-team/Cytologia",
+    "url_fiche_boas_source": "https://www.health-data-hub.fr/bibliotheque-ouverte-algorithmes-sante/data-challenge-cytolog-ia-automatisation-du-diagnostic-des",
+    "last_checked": "2026-07-07T20:12:02.078807+00:00",
+    "related_to": []
+  },
+  {
+    "slug": "algorithme-pour-construire-le-top-diabete-de-la-cartographie",
+    "titre": "Algorithme pour construire le top diabète de la cartographie de la CNAM (version G8) pour l’année 2019 en langage SAS et Python",
+    "type_auteur": "Administrations et ministère",
+    "objectif": [
+      "Outils de cartographie des pathologies",
+      "Outils de ciblage dans la base principale du SNDS"
+    ],
+    "domaine_medical": [
+      "Diabète"
+    ],
+    "langage": [
+      "Python",
+      "SAS"
+    ],
+    "donnees_application": [
+      "Base principale"
+    ],
+    "validation": "Non validé",
+    "maintenance": "Ad-hoc (en fonction des remontées de problèmes, suggestions)",
+    "code_disponible_sur": "https://gitlab.com/healthdatahub/boas/cnam/top-diabete",
+    "url_fiche_boas_source": "https://www.health-data-hub.fr/bibliotheque-ouverte-algorithmes-sante/algorithme-pour-construire-le-top-diabete-de-la-cartographie",
+    "last_checked": "2026-07-07T20:12:02.078807+00:00",
+    "related_to": []
+  },
+  {
+    "slug": "outil-de-generation-de-bases-de-donnees-synthetiques-et",
+    "titre": "Outil de génération de bases de données synthétiques et réalistes de la base principale du SNDS",
+    "type_auteur": "Organisme de recherche",
+    "objectif": [
+      "Autre"
+    ],
+    "domaine_medical": [
+      "Cancers",
+      "Maladies cardio-vasculaires",
+      "Diabète",
+      "Maladies neurodégénératives",
+      "Santé mentale et Psychiatrie",
+      "Périnatalité et Santé reproductive",
+      "Maladies respiratoires",
+      "Maladies infectieuses",
+      "Enfants et Pédiatrie",
+      "Personnes âgées et Gériatrie",
+      "Autre"
+    ],
+    "langage": [
+      "Python"
+    ],
+    "donnees_application": [
+      "Données synthétiques"
+    ],
+    "validation": "En cours de validation",
+    "maintenance": "Ad-hoc (en fonction des remontées de problèmes, suggestions)",
+    "code_disponible_sur": "https://gitlab.inria.fr/tguyet/medtrajectory_datagen/-/blob/master/README.md?ref_type=heads",
+    "url_fiche_boas_source": "https://www.health-data-hub.fr/bibliotheque-ouverte-algorithmes-sante/outil-de-generation-de-bases-de-donnees-synthetiques-et",
+    "last_checked": "2026-07-07T20:12:02.078807+00:00",
     "related_to": []
   }
 ]
