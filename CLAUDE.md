@@ -45,30 +45,22 @@ today:
   checked page-by-page against the real site, but the per-project detail
   fields have not all been individually re-verified — see "Limites connues"
   in `CONTEXT.md`.
-- `data/boas_extraction_brute.csv` — a separate, semicolon-delimited raw
-  extraction table (one row per project), with different fields than
-  `site/index.html`'s dataset: `titre_technique`, `chemin_gitlab`,
-  `code_disponible_sur` (actual code repo URL), `organisme_porteur_gitlab`,
-  `resume_technique_paraphrase` (paraphrased summary — deliberately never a
-  verbatim quote, for copyright reasons), `statut_extraction` (confidence
-  level — see below), `source` (extraction method), `url_fiche_boas_source`.
-- `data/boas_fetch_log.csv` — a log of which official pages were actually
-  fetched, by session, method of access, and whether the URL was user-supplied.
+- `site/data.json` — the canonical dataset (48 records as of issue #7),
+  produced by the automated pipeline (`pipeline/`, `scripts/run_live.py`) from
+  a live crawl of the official catalogue, per the schema settled in
+  `DECISIONS.md`. `site/changelog.json` is the append-only run history.
+  `site/index.html` loads this file at runtime (`site/normalize.js`); it no
+  longer has any hardcoded dataset.
 
-**These two data sources (the `site/index.html` DATA array and the CSVs in
-`data/`) are not the same schema and have not been reconciled.** Do not treat
-either as sole ground truth. Reconciling them into one canonical per-project
-schema is explicit unfinished work (see PROJECT_GOAL.md's risk list).
-
-`statut_extraction` values in the CSV, in decreasing order of trust:
-- `CONFIRMÉ (page détail HDH complète)` — full official detail page read live.
-- `Confirmé (GitLab)` — confirmed only via a third-party GitHub mirror
-  (ecosyste.ms / data.code.gouv.fr) referencing `gitlab.com/healthdatahub/*`,
-  not via the official HDH page itself. Not reliable for taxonomy fields
-  (domain, validation, maintenance) since the mirror doesn't carry those.
-- `PARTIELLEMENT CONFIRMÉ` — project/owner confirmed via a secondary source,
-  official page and/or code repo not yet located.
-- `NON CONFIRMÉ` — should be rare; verify before treating the file as final.
+**The hand-built `data/boas_extraction_brute.csv` and `data/boas_fetch_log.csv`
+were retired in issue #7**, once `data.json`'s coverage was confirmed at least
+as complete (see that issue/commit for the field-by-field comparison — the
+CSV's 51 rows vs. `data.json`'s 48 is fully explained: one CSV row was
+self-marked "à exclure", three were a stale mirror-based over-split of a
+single official "catalogue de métadonnées" fiche, one had the already-known-
+bad `snds_omop` path for EHDEN/Persephone — see below — and four genuine
+projects present in the live catalogue were simply missing from the manual
+CSV). Their history remains in git; don't expect them on disk.
 
 ## Known source-catalogue quirks (don't rediscover these)
 
