@@ -1,0 +1,53 @@
+name: Weekly catalogue pipeline
+
+on:
+  schedule:
+    - cron: "0 3 * * 1" # early Monday UTC
+  workflow_dispatch:
+
+permissions:
+  contents: write
+  issues: write
+
+concurrency:
+  group: "weekly-pipeline"
+  cancel-in-progress: false
+
+jobs:
+  run:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+
+      - name: Set up Python
+        uses: actions/setup-python@v5
+        with:
+          python-version: "3.12"
+
+      - name: Install dependencies
+        run: pip install -r requirements.txt
+
+      - name: Run pipeline
+        id: pipeline
+        continue-on-error: true
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+        run: python scripts/run_live.py
+
+      - name: Commit and push changes
+        run: |
+          if git diff --quiet -- site/data.json site/changelog.json; then
+            echo "No changes to commit."
+          else
+            git config user.name "github-actions[bot]"
+            git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+            git add site/data.json site/changelog.json
+            message=$(python -c "import json; print(json.load(open('site/changelog.json'))[-1]['summary'])")
+            git commit -m "$message"
+            git push
+          fi
+
+      - name: Fail the job if the pipeline run did not succeed
+        if: steps.pipeline.outcome == 'failure'
+        run: exit 1

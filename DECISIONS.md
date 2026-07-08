@@ -98,6 +98,21 @@ des faits à observer, puisqu'ils ne peuvent être observés qu'après coup.
   pour permettre une future vue "historique des changements" sans dépendre
   de l'historique git ou de l'API GitHub côté site statique.
 - **Planification** : cron hebdomadaire, lundi tôt le matin UTC.
+  **Précisé le 2026-07-08 (issue #6)** : `0 3 * * 1` (03:00 UTC), workflow
+  `.github/workflows/weekly-pipeline.yml`, aussi déclenchable manuellement
+  via `workflow_dispatch`. Permissions limitées à `contents: write` (commit)
+  + `issues: write` (gestion de l'issue d'échec) — pas de `pages` ni autre.
+  Le commit/push est décidé par le *workflow* (pas par le script Python) :
+  après `scripts/run_live.py`, un `git diff --quiet` sur `site/data.json` +
+  `site/changelog.json` détecte s'il y a eu écriture ; si oui, le message de
+  commit est relu directement dans la dernière entrée de `changelog.json`
+  (`summary`), déjà généré par le pipeline — aucun canal de sortie
+  supplémentaire (GITHUB_OUTPUT) n'a été nécessaire. L'étape d'exécution du
+  pipeline utilise `continue-on-error: true` pour que l'étape de commit
+  s'exécute même si le run a été abandonné (aucun fichier modifié dans ce
+  cas, donc rien à committer) ; une dernière étape fait échouer le job
+  (rouge dans l'onglet Actions) si le pipeline a abandonné, en plus de
+  l'issue `scraper-failure` déjà ouverte par `handle_run_outcome()`.
 - **Fixtures de test** : des pages HTML réelles (listing + quelques fiches
   détail) sont committées dans le dépôt (ex. `tests/fixtures/`) pour
   permettre de développer/tester le parser hors ligne. Les pages déjà
